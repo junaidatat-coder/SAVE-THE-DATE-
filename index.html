@@ -10,7 +10,7 @@
             margin: 0;
             padding: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #e9ede4; /* Main background color */
+            background: #f4f6f0;
             color: #333;
             text-align: center;
             overflow-x: hidden;
@@ -34,7 +34,7 @@
             position: absolute;
             width: 10px;
             height: 10px;
-            background-color: #d4a17c; /* Default confetti color */
+            background-color: #d4a17c;
             opacity: 0.6;
         }
 
@@ -48,17 +48,22 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 30px;
+            gap: 25px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             z-index: 1000;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             letter-spacing: 2px;
         }
 
         nav a {
             text-decoration: none;
             color: #4a5d4e;
-            font-weight: 500;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #c99772;
         }
 
         /* Header Section */
@@ -68,16 +73,48 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding-top: 80px; /* Space for fixed nav */
+            padding: 100px 20px 40px;
             position: relative;
         }
 
         .header-sub-title {
-            letter-spacing: 3px;
+            letter-spacing: 4px;
             text-transform: uppercase;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+            color: #777;
+        }
+
+        .couple-names-header {
+            font-family: Georgia, serif;
+            font-size: 3.5rem;
+            color: #4a5d4e;
+            margin: 10px 0 25px;
+            font-weight: normal;
+        }
+
+        .couple-names-header span {
+            color: #c99772;
+            font-style: italic;
+        }
+
+        /* Music Player Button */
+        .music-btn {
+            background: #4a5d4e;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             margin-bottom: 30px;
-            color: #555;
+            transition: background 0.3s;
+        }
+
+        .music-btn:hover {
+            background: #3b4b3e;
         }
 
         /* Countdown Timer */
@@ -93,94 +130,121 @@
 
         .time-box {
             background: white;
-            padding: 35px 20px;
-            border-radius: 30px; /* Rounded corners for boxes */
-            min-width: 70px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.05); /* Subtle shadow */
-            border: 1px solid #eee;
+            padding: 25px 15px;
+            border-radius: 20px;
+            min-width: 65px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8df;
         }
 
         .time-box span {
             display: block;
-            font-size: 3rem; /* Large number font */
+            font-size: 2.5rem;
             font-weight: bold;
             font-family: Georgia, serif;
-            color: #4a5d4e; /* Number color */
+            color: #4a5d4e;
         }
 
         .time-box p {
-            margin: 10px 0 0;
-            font-size: 0.75rem;
+            margin: 8px 0 0;
+            font-size: 0.7rem;
             letter-spacing: 1.5px;
             text-transform: uppercase;
-            color: #c99772; /* Label color (Days, Hours etc.) */
+            color: #c99772;
             font-weight: 600;
         }
 
         /* Event Details */
         .event-details {
-            font-size: 1rem;
-            letter-spacing: 1.2px;
-            margin-top: 40px;
+            font-size: 0.95rem;
+            letter-spacing: 1.5px;
+            margin-top: 30px;
             color: #555;
-            line-height: 1.6;
-        }
-
-        .event-details strong {
-            font-weight: 600;
+            line-height: 1.8;
+            font-weight: 500;
         }
 
         /* Sections */
         .section {
             padding: 80px 20px;
-            max-width: 700px;
+            max-width: 750px;
             margin: auto;
         }
 
         .section h2 {
             color: #4a5d4e;
-            font-size: 3rem;
-            margin-bottom: 40px;
+            font-size: 2.8rem;
+            margin-bottom: 30px;
             font-family: Georgia, serif;
             font-weight: normal;
         }
 
         .card {
             background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            margin-bottom: 20px;
+            padding: 35px;
+            border-radius: 16px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.04);
+            margin-bottom: 25px;
             text-align: left;
-            line-height: 1.6;
-            color: #666;
+            line-height: 1.7;
+            color: #555;
+            border: 1px solid #eee;
+        }
+
+        .couple-grid {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .person-card {
+            flex: 1;
+            min-width: 280px;
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.04);
+            text-align: center;
+            border: 1px solid #eee;
+        }
+
+        .person-card h3 {
+            color: #4a5d4e;
+            font-family: Georgia, serif;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .person-card p {
+            color: #777;
+            font-size: 0.95rem;
         }
 
         /* Footer */
         .footer {
             background: #2b362d;
             color: #b2c2b5;
-            padding: 50px 20px;
+            padding: 40px 20px;
             font-size: 0.9rem;
             margin-top: auto;
+            letter-spacing: 1px;
         }
 
         /* Mobile Optimization */
         @media (max-width: 600px) {
             nav {
-                gap: 15px;
-                font-size: 0.8rem;
-                letter-spacing: 1px;
+                gap: 12px;
+                font-size: 0.75rem;
             }
-            .countdown-container {
-                gap: 10px;
+            .couple-names-header {
+                font-size: 2.5rem;
             }
             .time-box {
-                padding: 25px 15px;
-                min-width: 55px;
+                padding: 20px 10px;
+                min-width: 50px;
             }
             .time-box span {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
             .section h2 {
                 font-size: 2.2rem;
@@ -203,8 +267,16 @@
 
     <!-- Header Section with Countdown -->
     <header id="home">
-        <p class="header-sub-title">Beginning Our Forever In</p>
+        <p class="header-sub-title">Save Our Date</p>
+        <h1 class="couple-names-header">Junaid <span>&</span> Ruby</h1>
         
+        <!-- Background Music Control -->
+        <audio id="bg-music" loop>
+            <source src="https://www.bensound.com/bensound-music/bensound-tenderness.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+        <button class="music-btn" onclick="toggleMusic()">🎵 Play Wedding Music</button>
+
         <div class="countdown-container">
             <div class="time-box">
                 <span id="days">00</span>
@@ -225,17 +297,23 @@
         </div>
 
         <div class="event-details">
-            SATURDAY &bull; 22 AUGUST 2026 <br>
+            SATURDAY &bull; 22 AUGUST 2026<br>
             VALLIL HOUSE, AYANIKKAD
         </div>
     </header>
 
     <!-- The Couple Section -->
     <div class="section" id="couple">
-        <h2>The Couple</h2>
-        <div class="card">
-            <h3 style="color: #4a5d4e; font-family: Georgia, serif; font-size: 1.8rem; margin-top: 0; font-weight: normal;">Junaid & Ruby</h3>
-            <p>Two wonderful lives coming together to begin a beautiful journey of love and togetherness.</p>
+        <h2>The Bride & Groom</h2>
+        <div class="couple-grid">
+            <div class="person-card">
+                <h3>Junaid</h3>
+                <p>Ready to embark on this beautiful journey of lifetime love, holding hands with his soulmate.</p>
+            </div>
+            <div class="person-card">
+                <h3>Ruby</h3>
+                <p>Stepping into a new chapter of happiness, grace, and endless togetherness.</p>
+            </div>
         </div>
     </div>
 
@@ -243,7 +321,9 @@
     <div class="section" id="story">
         <h2>Our Story</h2>
         <div class="card">
-            <p>We are excited to celebrate our special day with our dearest family and friends. Join us in making this moment unforgettable.</p>
+            <p style="text-align: center; font-size: 1.05rem;">
+                Two wonderful lives coming together to begin a beautiful journey. We are thrilled to celebrate our special day with our dearest family and friends. Your presence will make our celebration complete!
+            </p>
         </div>
     </div>
 
@@ -251,9 +331,9 @@
     <div class="section" id="events">
         <h2>Wedding Events</h2>
         <div class="card">
-            <p><strong>📅 Date:</strong> August 22, 2026</p>
+            <p style="margin-top: 0;"><strong>📅 Date:</strong> Saturday, August 22, 2026</p>
             <p><strong>⏰ Time:</strong> 10:00 AM - 4:00 PM</p>
-            <p><strong>📍 Venue:</strong> Vallil House, Ayanikkad</p>
+            <p style="margin-bottom: 0;"><strong>📍 Venue:</strong> Vallil House, Ayanikkad</p>
         </div>
     </div>
 
@@ -262,27 +342,45 @@
         <p>We look forward to celebrating with you! &hearts; Junaid & Ruby</p>
     </div>
 
-    <!-- JavaScript for Countdown and Confetti -->
+    <!-- JavaScript for Countdown, Confetti, and Music -->
     <script>
-        // Set the wedding date to 19 days from now (for demonstration)
-        const weddingDate = new Date();
-        weddingDate.setDate(weddingDate.getDate() + 19);
-        weddingDate.setHours(10, 0, 0, 0); // Set time to 10:00 AM
-        const targetDate = weddingDate.getTime();
+        // Music Toggle Function
+        let isPlaying = false;
+        function toggleMusic() {
+            const music = document.getElementById("bg-music");
+            const btn = document.querySelector(".music-btn");
+            if (isPlaying) {
+                music.pause();
+                btn.innerText = "🎵 Play Wedding Music";
+                isPlaying = false;
+            } else {
+                music.play().then(() => {
+                    btn.innerText = "🔇 Pause Music";
+                    isPlaying = true;
+                }).catch(e => {
+                    alert("Please interact with the page to enable audio.");
+                });
+            }
+        }
+
+        // Countdown Timer Logic
+        const weddingDate = new Date("August 22, 2026 10:00:00").getTime();
 
         function updateCountdown() {
             const now = new Date().getTime();
-            const distance = targetDate - now;
+            const distance = weddingDate - now;
 
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            if (distance > 0) {
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            document.getElementById("days").innerText = days < 10 ? "0" + days : days;
-            document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
-            document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
-            document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+                document.getElementById("days").innerText = days < 10 ? "0" + days : days;
+                document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+                document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+                document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+            }
         }
 
         setInterval(updateCountdown, 1000);
@@ -291,7 +389,7 @@
         // Confetti Animation
         function createConfetti() {
             const container = document.getElementById('confetti-container');
-            const confettiCount = 50;
+            const confettiCount = 35;
             const colors = ['#d4a17c', '#6b7c5f', '#ffffff', '#2b362d'];
 
             for (let i = 0; i < confettiCount; i++) {
@@ -301,24 +399,18 @@
                 confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
                 confetti.style.opacity = Math.random();
                 confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-                // Random shape (square or circle)
                 if (Math.random() > 0.5) {
                    confetti.style.borderRadius = '50%';
-                } else {
-                   // Keep it square
                 }
-
                 container.appendChild(confetti);
 
-                // Remove confetti after animation
                 setTimeout(() => {
                     confetti.remove();
                 }, 5000);
             }
         }
-        // Create confetti periodically
-        setInterval(createConfetti, 3000);
-        createConfetti(); // Initial batch
+        setInterval(createConfetti, 3500);
+        createConfetti();
     </script>
 </body>
 </html>
