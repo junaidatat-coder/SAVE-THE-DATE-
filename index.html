@@ -9,32 +9,237 @@
             margin: 0;
             padding: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #fdfbf7;
+            background: #eef2ed;
             color: #333;
             text-align: center;
         }
+        nav {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            display: flex;
+            justify-content: space-around;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            z-index: 1000;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+        nav a {
+            text-decoration: none;
+            color: #4a5d4e;
+            font-weight: 600;
+        }
         header {
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=80');
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=80');
             background-size: cover;
             background-position: center;
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             color: white;
-            padding: 20px;
+            padding-top: 60px;
         }
-        header h1 {
-            font-size: 3rem;
-            margin: 0;
-            color: #f3e5ab;
+        .countdown-container {
+            display: flex;
+            gap: 15px;
+            margin: 30px 0;
+        }
+        .time-box {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px 15px;
+            border-radius: 15px;
+            min-width: 65px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            color: #3b4d3f;
+        }
+        .time-box span {
+            display: block;
+            font-size: 2rem;
+            font-weight: bold;
             font-family: Georgia, serif;
         }
-        header h2 {
-            font-size: 1.8rem;
-            margin: 15px 0;
-            font-weight: 300;
+        .time-box p {
+            margin: 5px 0 0;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #6b7c6f;
+        }
+        .section {
+            padding: 80px 20px;
+            max-width: 700px;
+            margin: auto;
+        }
+        .section h2 {
+            color: #4a5d4e;
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            font-family: Georgia, serif;
+        }
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+        }
+        .footer {
+            background: #2b362d;
+            color: #b2c2b5;
+            padding: 40px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#home">HOME</a>
+        <a href="#couple">COUPLE</a>
+        <a href="#story">STORY</a>
+        <a href="#events">EVENTS</a>
+    </nav>
+
+    <header id="home">
+        <p style="letter-spacing: 3px; text-transform: uppercase; font-size: 0.9rem; margin-bottom: 10px;">Beginning Our Forever In</p>
+        
+        <!-- Countdown Timer Boxes -->
+        <div class="countdown-container">
+            <div class="time-box">
+                <span id="days">00</span>
+                <p>Days</p>
+            </div>
+            <div class="time-box">
+                <span id="hours">00</span>
+                <p>Hours</p>
+            </div>
+            <div class="time-box">
+                <span id="minutes">00</span>
+                <p>Minutes</p>
+            </div>
+            <div class="time-box">
+                <span id="seconds">00</span>
+                <p>Seconds</p>
+            </div>
+        </div>
+
+        <p style="font-size: 0.95rem; letter-spacing: 1px; margin-top: 15px;">SATURDAY &bull; 22 AUGUST 2026 &bull; VALLIL HOUSE, AYANIKKAD</p>
+    </header>
+
+    <div class="section" id="couple">
+        <h2>The Couple</h2>
+        <div class="card">
+            <h3 style="color: #4a5d4e; font-family: Georgia, serif; font-size: 1.8rem; margin-top: 0;">Junaid & Ruby</h3>
+            <p style="color: #666; line-height: 1.6;">Two wonderful lives coming together to begin a beautiful journey of love and togetherness.</p>
+        </div>
+    </div>
+
+    <div class="section" id="events">
+        <h2>Wedding Events</h2>
+        <div class="card">
+            <p><strong>📅 Date:</strong> August 22, 2026</p>
+            <p><strong>⏰ Time:</strong> 10:00 AM - 4:00 PM</p>
+            <p><strong>📍 Venue:</strong> Vallil House, Ayanikkad</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>We look forward to celebrating with you! &hearts; Junaid & Ruby</p>
+    </div>
+
+    <script>
+        // Set the date we're counting down to
+        const weddingDate = new Date("August 22, 2026 10:00:00").getTime();
+
+        const timer = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            തീർച്ചയായും! വിവാഹ തീയതിയായ **August 22, 2026** വരെയുള്ള ബാക്കി സമയം (Days, Hours, Minutes, Seconds) ലൈവായി എണ്ണിക്കാണിക്കുന്ന കൗണ്ട്ഡൗൺ (Countdown Timer) ഈ വെബ്‌സൈറ്റിൽ ഉൾപ്പെടുത്താം. 
+
+അതിനായി താഴെ നൽകിയിരിക്കുന്ന പുതിയ കോഡ് കോപ്പി ചെയ്ത്, നിങ്ങളുടെ GitHub-ലെ `index.html` ഫയലിൽ നിലവിലുള്ള കോഡിന് പകരം പേസ്റ്റ് ചെയ്യുക.
+
+### പുതിയ കോഡ്:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Save The Date - Junaid & Ruby</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f4f6f0;
+            color: #333;
+            text-align: center;
+        }
+        nav {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            z-index: 1000;
+        }
+        nav a {
+            text-decoration: none;
+            color: #4a5d4e;
+            font-weight: 600;
+        }
+        header {
+            padding: 120px 20px 60px 20px;
+            background: #e8ede3;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            color: #4a5d4e;
+            font-family: Georgia, serif;
+            margin-bottom: 5px;
+        }
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        .time-box {
+            background: white;
+            padding: 20px 15px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            min-width: 70px;
+            border: 1px solid #d5decb;
+        }
+        .time-box span {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #4a5d4e;
+            display: block;
+        }
+        .time-box p {
+            margin: 5px 0 0 0;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: #7f8c77;
+            letter-spacing: 1px;
         }
         .section {
             padding: 60px 20px;
@@ -42,7 +247,7 @@
             margin: auto;
         }
         .section h2 {
-            color: #bfa15f;
+            color: #4a5d4e;
             font-size: 2rem;
             margin-bottom: 20px;
             font-family: Georgia, serif;
@@ -53,13 +258,11 @@
             border-radius: 12px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.05);
             margin-bottom: 20px;
-            border-top: 4px solid #bfa15f;
-        }
-        .story {
-            background: #f4ece1;
+            border-top: 4px solid #4a5d4e;
+            text-align: left;
         }
         .footer {
-            background: #222;
+            background: #333;
             color: #aaa;
             padding: 30px;
             font-size: 0.9rem;
@@ -68,14 +271,47 @@
 </head>
 <body>
 
-    <header>
-        <p style="letter-spacing: 3px; text-transform: uppercase; font-size: 1rem;">Save The Date</p>
-        <h1>Junaid & Ruby</h1>
-        <h2>Are getting married</h2>
-        <p style="font-size: 1.2rem; margin-top: 20px;">August 22, 2026</p>
+    <nav>
+        <a href="#home">HOME</a>
+        <a href="#couple">COUPLE</a>
+        <a href="#events">EVENTS</a>
+    </nav>
+
+    <header id="home">
+        <p style="letter-spacing: 3px; text-transform: uppercase; font-size: 0.9rem; color: #7f8c77;">Beginning Our Forever In</p>
+        
+        <!-- Countdown Timer -->
+        <div class="countdown-container">
+            <div class="time-box">
+                <span id="days">00</span>
+                <p>Days</p>
+            </div>
+            <div class="time-box">
+                <span id="hours">00</span>
+                <p>Hours</p>
+            </div>
+            <div class="time-box">
+                <span id="minutes">00</span>
+                <p>Minutes</p>
+            </div>
+            <div class="time-box">
+                <span id="seconds">00</span>
+                <p>Seconds</p>
+            </div>
+        </div>
+
+        <p style="font-size: 1.1rem; color: #555; margin-top: 20px;">SATURDAY &bull; 22 AUGUST 2026 &bull; VALLIL HOUSE, AYANIKKAD</p>
     </header>
 
-    <div class="section">
+    <div class="section" id="couple">
+        <h2>The Couple</h2>
+        <div class="card">
+            <p><strong>Junaid & Ruby</strong></p>
+            <p>Two wonderful lives coming together to begin a beautiful journey of love and togetherness. We are excited to celebrate our special day with our dearest family and friends.</p>
+        </div>
+    </div>
+
+    <div class="section" id="events">
         <h2>The Wedding Details</h2>
         <div class="card">
             <p><strong>📅 Date:</strong> August 22, 2026</p>
@@ -84,14 +320,36 @@
         </div>
     </div>
 
-    <div class="section story">
-        <h2>Our Story</h2>
-        <p>Two wonderful lives coming together to begin a beautiful journey of love and togetherness. We are excited to celebrate our special day with our dearest family and friends.</p>
-    </div>
-
     <div class="footer">
         <p>We look forward to celebrating with you! &hearts; Junaid & Ruby</p>
     </div>
+
+    <script>
+        const weddingDate = new Date("August 22, 2026 10:00:00").getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const gap = weddingDate - now;
+
+            const second = 1000;
+            const minute = second * 60;
+            const hour = minute * 60;
+            const day = hour * 24;
+
+            const textDays = Math.floor(gap / day);
+            const textHours = Math.floor((gap % day) / hour);
+            const textMinutes = Math.floor((gap % hour) / minute);
+            const textSeconds = Math.floor((gap % minute) / second);
+
+            document.getElementById("days").innerText = textDays < 10 ? '0' + textDays : textDays;
+            document.getElementById("hours").innerText = textHours < 10 ? '0' + textHours : textHours;
+            document.getElementById("minutes").innerText = textMinutes < 10 ? '0' + textMinutes : textMinutes;
+            document.getElementById("seconds").innerText = textSeconds < 10 ? '0' + textSeconds : textSeconds;
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
 
 </body>
 </html>
