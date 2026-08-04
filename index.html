@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Secret Trend - Mega Student Offer</title>
+    <title>Secret Trend - Sunday Funday Student Offer</title>
     <style>
         body {
             margin: 0;
@@ -51,7 +51,7 @@
 
         .title-main {
             font-family: 'Georgia', serif;
-            font-size: 36px;
+            font-size: 34px;
             font-weight: 400;
             margin: 10px 0 0 0;
             color: #f3f4f6;
@@ -60,39 +60,46 @@
         .title-sub {
             font-family: 'Georgia', serif;
             font-style: italic;
-            font-size: 38px;
+            font-size: 32px;
             color: #f6ad55;
-            margin: 0 0 25px 0;
+            margin: 0 0 20px 0;
             text-shadow: 0 0 15px rgba(246, 173, 85, 0.4);
         }
 
         .badge-btn {
             background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
             color: #ffffff;
-            padding: 14px 25px;
+            padding: 12px 22px;
             border-radius: 30px;
             font-weight: 600;
-            font-size: 14px;
+            font-size: 13px;
             letter-spacing: 1px;
             display: inline-flex;
             align-items: center;
             gap: 8px;
             box-shadow: 0 0 20px rgba(217, 119, 6, 0.5);
-            margin-bottom: 35px;
+            margin-bottom: 30px;
             border: none;
         }
 
+        /* Spinning Circle Effect */
         .circle-box {
             width: 210px;
             height: 210px;
-            background: radial-gradient(circle, #f43f5e 0%, #3b82f6 100%);
+            background: radial-gradient(circle, #2d6a4f 0%, #1b4332 100%);
             border-radius: 50%;
-            margin: 0 auto 35px auto;
+            margin: 0 auto 30px auto;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 0 35px rgba(244, 63, 94, 0.4);
+            box-shadow: 0 0 35px rgba(45, 106, 79, 0.5);
             position: relative;
+            cursor: pointer;
+            transition: transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .circle-box.spin {
+            transform: rotate(360deg);
         }
 
         .circle-box::after {
@@ -100,17 +107,19 @@
             position: absolute;
             width: 185px;
             height: 185px;
-            border: 2px dashed rgba(255, 255, 255, 0.3);
+            border: 2px dashed rgba(255, 255, 255, 0.4);
             border-radius: 50%;
         }
 
         .circle-text {
-            font-size: 15px;
-            font-weight: 600;
+            font-size: 14px;
+            font-weight: 700;
             letter-spacing: 1px;
             color: #ffffff;
             z-index: 1;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            text-align: center;
+            padding: 0 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.4);
         }
 
         .theme-btn {
@@ -124,14 +133,14 @@
             letter-spacing: 1px;
             cursor: pointer;
             box-shadow: 0 0 15px rgba(217, 119, 6, 0.4);
-            margin-bottom: 40px;
+            margin-bottom: 35px;
         }
 
         .countdown-container {
             display: flex;
             justify-content: center;
             gap: 12px;
-            margin-bottom: 35px;
+            margin-bottom: 30px;
         }
 
         .countdown-box {
@@ -187,40 +196,104 @@
 
     <div class="container">
         <h1 class="title-main">Secret Trend</h1>
-        <div class="title-sub">Mega Student Offer</div>
+        <div class="title-sub">Sunday Funday Offer</div>
 
         <div class="badge-btn">
-            ⚡ THE MEGA LAUNCH • SOON ⚡
+            ⚡ FLAT 10% TO 40% OFF ⚡
         </div>
 
-        <div class="circle-box">
-            <div class="circle-text">Student Offer Launch</div>
+        <!-- Clickable Spinning Circle for Student Offer -->
+        <div class="circle-box" id="spinCircle" onclick="triggerSpin()">
+            <div class="circle-text">SPIN FOR<br>STUDENT OFFER</div>
         </div>
 
-        <button class="theme-btn">🔊 PLAY ANTHEM</button>
+        <button class="theme-btn">🛍️ ORDER ON WEBSITE</button>
 
+        <!-- Live Countdown Timer for Next Sunday -->
         <div class="countdown-container">
             <div class="countdown-box">
-                <span class="countdown-number">17</span>
+                <span class="countdown-number" id="days">00</span>
                 <span class="countdown-label">DAYS</span>
             </div>
             <div class="countdown-box">
-                <span class="countdown-number">12</span>
+                <span class="countdown-number" id="hours">00</span>
                 <span class="countdown-label">HOURS</span>
             </div>
             <div class="countdown-box">
-                <span class="countdown-number">02</span>
+                <span class="countdown-number" id="minutes">00</span>
                 <span class="countdown-label">MINUTES</span>
             </div>
             <div class="countdown-box">
-                <span class="countdown-number">18</span>
+                <span class="countdown-number" id="seconds">00</span>
                 <span class="countdown-label">SECONDS</span>
             </div>
         </div>
 
-        <div class="event-date">SATURDAY • 22 AUGUST 2026</div>
-        <div class="event-location">SECRET TREND STORE, ONLINE</div>
+        <div class="event-date" id="eventDateText">SUNDAY • LOADING...</div>
+        <div class="event-location">SECRET TREND STORE (.SHOP) • ONLINE</div>
     </div>
 
+    <script>
+        // Spin Animation Function
+        function triggerSpin() {
+            const circle = document.getElementById('spinCircle');
+            circle.classList.remove('spin');
+            void circle.offsetWidth; // Trigger reflow
+            circle.classList.add('spin');
+        }
+
+        // Calculate Next Sunday Countdown
+        function getNextSunday() {
+            const now = new Date();
+            const resultDate = new Date(now.getTime());
+            
+            // Day of week: 0 is Sunday, 1 is Monday, ..., 6 is Saturday
+            const dayOfWeek = now.getDay();
+            const daysUntilSunday = (7 - dayOfWeek) % 7;
+            
+            if (daysUntilSunday === 0) {
+                // If today is Sunday, target next Sunday or end of today. Let's target next Sunday if time passed, or keep it.
+                resultDate.setDate(now.getDate() + 7);
+            } else {
+                resultDate.setDate(now.getDate() + daysUntilSunday);
+            }
+            
+            // Set time to Sunday 10:00 AM
+            resultDate.setHours(10, 0, 0, 0);
+            return resultDate;
+        }
+
+        const targetDate = getNextSunday();
+
+        // Format Date for Display
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('eventDateText').innerText = targetDate.toLocaleDateString('en-US', options).toUpperCase();
+
+        function updateCountdown() {
+            const now = new Date();
+            const diff = targetDate - now;
+
+            if (diff <= 0) {
+                document.getElementById('days').innerText = "00";
+                document.getElementById('hours').innerText = "00";
+                document.getElementById('minutes').innerText = "00";
+                document.getElementById('seconds').innerText = "00";
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('days').innerText = String(days).padStart(2, '0');
+            document.getElementById('hours').innerText = String(hours).padStart(2, '0');
+            document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
 </body>
 </html>
