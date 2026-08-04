@@ -8,7 +8,7 @@
         body {
             margin: 0;
             padding: 0;
-            background-color: #0b0f19;
+            background: linear-gradient(135deg, #070913 0%, #0b0f19 50%, #111827 100%);
             color: #ffffff;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
@@ -23,13 +23,15 @@
             width: 100%;
             display: flex;
             justify-content: center;
-            gap: 25px;
-            padding: 20px 0;
-            font-size: 13px;
-            letter-spacing: 2px;
+            gap: 30px;
+            padding: 22px 0;
+            font-size: 12px;
+            letter-spacing: 2.5px;
             font-weight: 600;
-            color: #8da4ef;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: #93c5fd;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(11, 15, 25, 0.8);
+            backdrop-filter: blur(10px);
         }
 
         header span {
@@ -43,109 +45,123 @@
 
         .container {
             text-align: center;
-            padding: 30px 20px;
+            padding: 25px 20px;
             max-width: 500px;
             width: 100%;
             box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .title-main {
             font-family: 'Georgia', serif;
-            font-size: 34px;
+            font-size: 32px;
             font-weight: 400;
-            margin: 10px 0 0 0;
-            color: #f3f4f6;
+            margin: 5px 0 0 0;
+            color: #f9fafb;
+            letter-spacing: 1px;
         }
 
         .title-sub {
             font-family: 'Georgia', serif;
             font-style: italic;
-            font-size: 32px;
+            font-size: 30px;
             color: #f6ad55;
             margin: 0 0 20px 0;
-            text-shadow: 0 0 15px rgba(246, 173, 85, 0.4);
+            text-shadow: 0 0 20px rgba(246, 173, 85, 0.3);
         }
 
         .badge-btn {
             background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
             color: #ffffff;
-            padding: 12px 22px;
+            padding: 12px 26px;
             border-radius: 30px;
             font-weight: 600;
             font-size: 13px;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            box-shadow: 0 0 20px rgba(217, 119, 6, 0.5);
-            margin-bottom: 30px;
+            box-shadow: 0 0 25px rgba(217, 119, 6, 0.4);
+            margin-bottom: 25px;
             border: none;
         }
 
-        /* Spinning Circle Effect */
+        /* Premium Spinning Circle Effect */
         .circle-box {
-            width: 210px;
-            height: 210px;
-            background: radial-gradient(circle, #2d6a4f 0%, #1b4332 100%);
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, #065f46 0%, #022c22 100%);
             border-radius: 50%;
-            margin: 0 auto 30px auto;
+            margin: 0 auto 25px auto;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 0 35px rgba(45, 106, 79, 0.5);
+            box-shadow: 0 0 40px rgba(6, 95, 70, 0.6), inset 0 0 15px rgba(255, 255, 255, 0.1);
             position: relative;
             cursor: pointer;
-            transition: transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+            transition: transform 1.2s cubic-bezier(0.15, 0.85, 0.35, 1.2);
+            border: 2px solid rgba(52, 211, 153, 0.3);
         }
 
         .circle-box.spin {
-            transform: rotate(360deg);
+            transform: rotate(720deg);
         }
 
         .circle-box::after {
             content: '';
             position: absolute;
-            width: 185px;
-            height: 185px;
-            border: 2px dashed rgba(255, 255, 255, 0.4);
+            width: 175px;
+            height: 175px;
+            border: 2px dashed rgba(255, 255, 255, 0.35);
             border-radius: 50%;
         }
 
         .circle-text {
             font-size: 14px;
             font-weight: 700;
-            letter-spacing: 1px;
+            letter-spacing: 1.2px;
             color: #ffffff;
             z-index: 1;
             text-align: center;
             padding: 0 20px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+            text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+            line-height: 1.4;
         }
 
         .theme-btn {
             background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
             color: #ffffff;
             border: none;
-            padding: 12px 30px;
+            padding: 13px 32px;
             border-radius: 25px;
             font-size: 13px;
             font-weight: 600;
-            letter-spacing: 1px;
+            letter-spacing: 1.2px;
             cursor: pointer;
-            box-shadow: 0 0 15px rgba(217, 119, 6, 0.4);
-            margin-bottom: 35px;
+            box-shadow: 0 0 20px rgba(217, 119, 6, 0.4);
+            margin-bottom: 30px;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .theme-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 25px rgba(217, 119, 6, 0.6);
         }
 
         .countdown-container {
             display: flex;
             justify-content: center;
-            gap: 12px;
-            margin-bottom: 30px;
+            gap: 10px;
+            margin-bottom: 25px;
         }
 
         .countdown-box {
-            background: #111827;
-            border: 1px solid rgba(246, 173, 85, 0.3);
+            background: rgba(17, 24, 39, 0.7);
+            border: 1px solid rgba(246, 173, 85, 0.25);
             border-radius: 12px;
             width: 65px;
             height: 75px;
@@ -153,7 +169,8 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            backdrop-filter: blur(5px);
         }
 
         .countdown-number {
@@ -165,23 +182,39 @@
 
         .countdown-label {
             font-size: 9px;
-            letter-spacing: 1px;
+            letter-spacing: 1.2px;
             color: #9ca3af;
             margin-top: 4px;
         }
 
         .event-date {
-            font-size: 13px;
+            font-size: 12px;
             letter-spacing: 2px;
             color: #e5e7eb;
             font-weight: 500;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
         }
 
-        .event-location {
+        .footer-links {
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
             font-size: 12px;
             letter-spacing: 1.5px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 15px;
+            width: 100%;
+        }
+
+        .footer-links a {
             color: #9ca3af;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #f6ad55;
         }
     </style>
 </head>
@@ -207,7 +240,8 @@
             <div class="circle-text">SPIN FOR<br>STUDENT OFFER</div>
         </div>
 
-        <button class="theme-btn">🛍️ ORDER ON WEBSITE</button>
+        <!-- Active Website Link Button -->
+        <a href="https://secrettrend.shop/" target="_blank" class="theme-btn">🛍️ ORDER ON WEBSITE</a>
 
         <!-- Live Countdown Timer for Next Sunday -->
         <div class="countdown-container">
@@ -230,7 +264,12 @@
         </div>
 
         <div class="event-date" id="eventDateText">SUNDAY • LOADING...</div>
-        <div class="event-location">SECRET TREND STORE (.SHOP) • ONLINE</div>
+
+        <!-- Clean Footer Links as Requested -->
+        <div class="footer-links">
+            <a href="https://secrettrend.shop/" target="_blank">secrettrend.shop</a>
+            <a href="https://instagram.com" target="_blank">secrettrend.shop Instagram</a>
+        </div>
     </div>
 
     <script>
@@ -247,25 +286,21 @@
             const now = new Date();
             const resultDate = new Date(now.getTime());
             
-            // Day of week: 0 is Sunday, 1 is Monday, ..., 6 is Saturday
-            const dayOfWeek = now.getDay();
+            const dayOfWeek = now.getDay(); // 0 is Sunday
             const daysUntilSunday = (7 - dayOfWeek) % 7;
             
             if (daysUntilSunday === 0) {
-                // If today is Sunday, target next Sunday or end of today. Let's target next Sunday if time passed, or keep it.
                 resultDate.setDate(now.getDate() + 7);
             } else {
                 resultDate.setDate(now.getDate() + daysUntilSunday);
             }
             
-            // Set time to Sunday 10:00 AM
             resultDate.setHours(10, 0, 0, 0);
             return resultDate;
         }
 
         const targetDate = getNextSunday();
 
-        // Format Date for Display
         const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
         document.getElementById('eventDateText').innerText = targetDate.toLocaleDateString('en-US', options).toUpperCase();
 
