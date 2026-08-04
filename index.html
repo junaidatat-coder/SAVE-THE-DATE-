@@ -4,14 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Save The Date - Junaid & Ruby</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        /* General Styles */
-        body {
+        :root {
+            --primary: #2d3831;
+            --accent: #c5a059;
+            --bg-color: #faf9f6;
+            --card-bg: rgba(255, 255, 255, 0.85);
+        }
+
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f4f6f0;
-            color: #333;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-color);
+            color: #444;
             text-align: center;
             overflow-x: hidden;
             display: flex;
@@ -19,7 +30,7 @@
             min-height: 100vh;
         }
 
-        /* Confetti Background */
+        /* Luxury Particle/Confetti Background */
         .confetti-container {
             position: fixed;
             top: 0;
@@ -32,15 +43,22 @@
 
         .confetti {
             position: absolute;
-            width: 10px;
-            height: 10px;
-            background-color: #d4a17c;
-            opacity: 0.6;
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent);
+            opacity: 0.5;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
         }
 
         /* Navigation Bar */
         nav {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(250, 249, 246, 0.9);
+            backdrop-filter: blur(10px);
             padding: 15px 0;
             position: fixed;
             width: 100%;
@@ -48,22 +66,22 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 25px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            gap: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
             z-index: 1000;
-            font-size: 0.85rem;
-            letter-spacing: 2px;
+            font-size: 0.75rem;
+            letter-spacing: 3px;
         }
 
         nav a {
             text-decoration: none;
-            color: #4a5d4e;
+            color: var(--primary);
             font-weight: 600;
             transition: color 0.3s;
         }
 
         nav a:hover {
-            color: #c99772;
+            color: var(--accent);
         }
 
         /* Header Section */
@@ -73,122 +91,154 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 100px 20px 40px;
+            padding: 120px 20px 50px;
             position: relative;
         }
 
         .header-sub-title {
-            letter-spacing: 4px;
+            letter-spacing: 5px;
             text-transform: uppercase;
-            font-size: 0.85rem;
-            margin-bottom: 15px;
-            color: #777;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+            color: #888;
         }
 
         .couple-names-header {
-            font-family: Georgia, serif;
-            font-size: 3.5rem;
-            color: #4a5d4e;
-            margin: 10px 0 25px;
-            font-weight: normal;
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            color: var(--primary);
+            margin: 10px 0;
+            font-weight: 400;
         }
 
         .couple-names-header span {
-            color: #c99772;
+            color: var(--accent);
             font-style: italic;
         }
 
-        /* Music Player Button */
+        /* Animated Couple Illustration Style */
+        .couple-animation-box {
+            margin: 20px 0;
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #fdfbf7, #f0ebd8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(197, 160, 89, 0.2);
+            animation: floatSlow 4s ease-in-out infinite;
+            border: 2px solid rgba(197, 160, 89, 0.4);
+        }
+
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .couple-animation-box svg {
+            width: 80px;
+            height: 80px;
+            fill: var(--primary);
+            animation: pulseHeart 2s infinite;
+        }
+
+        @keyframes pulseHeart {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+            100% { transform: scale(1); }
+        }
+
+        /* Music Button */
         .music-btn {
-            background: #4a5d4e;
+            background: var(--primary);
             color: white;
             border: none;
-            padding: 10px 20px;
+            padding: 12px 25px;
             border-radius: 30px;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
-            transition: background 0.3s;
+            box-shadow: 0 5px 20px rgba(45, 56, 49, 0.2);
+            margin: 15px 0 25px;
+            transition: all 0.3s ease;
         }
 
         .music-btn:hover {
-            background: #3b4b3e;
+            background: var(--accent);
+            transform: translateY(-2px);
         }
 
         /* Countdown Timer */
         .countdown-container {
             display: flex;
-            gap: 15px;
-            margin: 20px 0;
-            flex-wrap: wrap;
+            gap: 12px;
+            margin: 15px 0;
             justify-content: center;
-            width: 100%;
-            max-width: 500px;
         }
 
         .time-box {
-            background: white;
-            padding: 25px 15px;
-            border-radius: 20px;
+            background: var(--card-bg);
+            backdrop-filter: blur(5px);
+            padding: 20px 12px;
+            border-radius: 16px;
             min-width: 65px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
-            border: 1px solid #e2e8df;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+            border: 1px solid rgba(197, 160, 89, 0.2);
         }
 
         .time-box span {
             display: block;
-            font-size: 2.5rem;
-            font-weight: bold;
-            font-family: Georgia, serif;
-            color: #4a5d4e;
+            font-size: 2.2rem;
+            font-weight: 600;
+            font-family: 'Playfair Display', serif;
+            color: var(--primary);
         }
 
         .time-box p {
-            margin: 8px 0 0;
-            font-size: 0.7rem;
-            letter-spacing: 1.5px;
+            margin: 5px 0 0;
+            font-size: 0.65rem;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            color: #c99772;
+            color: var(--accent);
             font-weight: 600;
         }
 
-        /* Event Details */
         .event-details {
-            font-size: 0.95rem;
-            letter-spacing: 1.5px;
-            margin-top: 30px;
-            color: #555;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            margin-top: 25px;
+            color: #666;
             line-height: 1.8;
-            font-weight: 500;
+            font-weight: 400;
         }
 
         /* Sections */
         .section {
-            padding: 80px 20px;
-            max-width: 750px;
+            padding: 90px 20px;
+            max-width: 700px;
             margin: auto;
         }
 
         .section h2 {
-            color: #4a5d4e;
+            color: var(--primary);
             font-size: 2.8rem;
-            margin-bottom: 30px;
-            font-family: Georgia, serif;
-            font-weight: normal;
+            margin-bottom: 25px;
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
         }
 
         .card {
-            background: white;
-            padding: 35px;
-            border-radius: 16px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.04);
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.03);
             margin-bottom: 25px;
             text-align: left;
-            line-height: 1.7;
+            line-height: 1.8;
             color: #555;
-            border: 1px solid #eee;
+            border: 1px solid rgba(197, 160, 89, 0.15);
         }
 
         .couple-grid {
@@ -200,61 +250,50 @@
         .person-card {
             flex: 1;
             min-width: 280px;
-            background: white;
-            padding: 30px;
-            border-radius: 16px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.04);
+            background: var(--card-bg);
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.03);
             text-align: center;
-            border: 1px solid #eee;
+            border: 1px solid rgba(197, 160, 89, 0.15);
         }
 
         .person-card h3 {
-            color: #4a5d4e;
-            font-family: Georgia, serif;
-            font-size: 1.8rem;
-            margin-bottom: 10px;
+            color: var(--primary);
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 12px;
+            font-weight: 400;
         }
 
         .person-card p {
-            color: #777;
-            font-size: 0.95rem;
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.6;
         }
 
         /* Footer */
         .footer {
-            background: #2b362d;
-            color: #b2c2b5;
-            padding: 40px 20px;
-            font-size: 0.9rem;
+            background: var(--primary);
+            color: #d1d8d3;
+            padding: 50px 20px;
+            font-size: 0.85rem;
             margin-top: auto;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
         }
 
-        /* Mobile Optimization */
+        /* Responsive */
         @media (max-width: 600px) {
-            nav {
-                gap: 12px;
-                font-size: 0.75rem;
-            }
-            .couple-names-header {
-                font-size: 2.5rem;
-            }
-            .time-box {
-                padding: 20px 10px;
-                min-width: 50px;
-            }
-            .time-box span {
-                font-size: 1.8rem;
-            }
-            .section h2 {
-                font-size: 2.2rem;
-            }
+            .couple-names-header { font-size: 2.8rem; }
+            .time-box { padding: 15px 8px; min-width: 55px; }
+            .time-box span { font-size: 1.6rem; }
+            .section h2 { font-size: 2.2rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Confetti Elements -->
+    <!-- Particle Confetti Background -->
     <div class="confetti-container" id="confetti-container"></div>
 
     <!-- Navigation Bar -->
@@ -265,35 +304,30 @@
         <a href="#events">EVENTS</a>
     </nav>
 
-    <!-- Header Section with Countdown -->
+    <!-- Header Section -->
     <header id="home">
-        <p class="header-sub-title">Save Our Date</p>
+        <p class="header-sub-title">The Wedding Celebration</p>
         <h1 class="couple-names-header">Junaid <span>&</span> Ruby</h1>
         
-        <!-- Background Music Control -->
+        <!-- Animated Couple Glowing Ring Icon -->
+        <div class="couple-animation-box">
+            <svg viewBox="0 0 24 24">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+        </div>
+
+        <!-- Background Audio -->
         <audio id="bg-music" loop>
             <source src="https://www.bensound.com/bensound-music/bensound-tenderness.mp3" type="audio/mp3">
-            Your browser does not support the audio element.
         </audio>
-        <button class="music-btn" onclick="toggleMusic()">🎵 Play Wedding Music</button>
+        <button class="music-btn" onclick="toggleMusic()">🎵 PLAY MUSIC</button>
 
+        <!-- Countdown -->
         <div class="countdown-container">
-            <div class="time-box">
-                <span id="days">00</span>
-                <p>Days</p>
-            </div>
-            <div class="time-box">
-                <span id="hours">00</span>
-                <p>Hours</p>
-            </div>
-            <div class="time-box">
-                <span id="minutes">00</span>
-                <p>Minutes</p>
-            </div>
-            <div class="time-box">
-                <span id="seconds">00</span>
-                <p>Seconds</p>
-            </div>
+            <div class="time-box"><span id="days">00</span><p>Days</p></div>
+            <div class="time-box"><span id="hours">00</span><p>Hours</p></div>
+            <div class="time-box"><span id="minutes">00</span><p>Minutes</p></div>
+            <div class="time-box"><span id="seconds">00</span><p>Seconds</p></div>
         </div>
 
         <div class="event-details">
@@ -302,27 +336,27 @@
         </div>
     </header>
 
-    <!-- The Couple Section -->
+    <!-- Couple Section -->
     <div class="section" id="couple">
         <h2>The Bride & Groom</h2>
         <div class="couple-grid">
             <div class="person-card">
                 <h3>Junaid</h3>
-                <p>Ready to embark on this beautiful journey of lifetime love, holding hands with his soulmate.</p>
+                <p>Stepping forward to embrace a magnificent lifetime journey filled with love and endless joy.</p>
             </div>
             <div class="person-card">
                 <h3>Ruby</h3>
-                <p>Stepping into a new chapter of happiness, grace, and endless togetherness.</p>
+                <p>Radiating grace and happiness as she walks hand in hand into a beautiful new chapter.</p>
             </div>
         </div>
     </div>
 
-    <!-- Our Story Section -->
+    <!-- Story Section -->
     <div class="section" id="story">
-        <h2>Our Story</h2>
+        <h2>Our Journey</h2>
         <div class="card">
-            <p style="text-align: center; font-size: 1.05rem;">
-                Two wonderful lives coming together to begin a beautiful journey. We are thrilled to celebrate our special day with our dearest family and friends. Your presence will make our celebration complete!
+            <p style="text-align: center; font-size: 1rem;">
+                Two distinct paths converging into one beautiful destination. We are immensely joyful to celebrate our special day surrounded by our cherished family and closest friends.
             </p>
         </div>
     </div>
@@ -339,78 +373,55 @@
 
     <!-- Footer -->
     <div class="footer">
-        <p>We look forward to celebrating with you! &hearts; Junaid & Ruby</p>
+        <p>WE WAIT TO CELEBRATE WITH YOU &hearts; JUNAID & RUBY</p>
     </div>
 
-    <!-- JavaScript for Countdown, Confetti, and Music -->
+    <!-- Scripts -->
     <script>
-        // Music Toggle Function
         let isPlaying = false;
         function toggleMusic() {
             const music = document.getElementById("bg-music");
             const btn = document.querySelector(".music-btn");
             if (isPlaying) {
                 music.pause();
-                btn.innerText = "🎵 Play Wedding Music";
+                btn.innerText = "🎵 PLAY MUSIC";
                 isPlaying = false;
             } else {
                 music.play().then(() => {
-                    btn.innerText = "🔇 Pause Music";
+                    btn.innerText = "🔇 PAUSE MUSIC";
                     isPlaying = true;
                 }).catch(e => {
-                    alert("Please interact with the page to enable audio.");
+                    alert("Please interact with the page to play music.");
                 });
             }
         }
 
-        // Countdown Timer Logic
         const weddingDate = new Date("August 22, 2026 10:00:00").getTime();
-
         function updateCountdown() {
             const now = new Date().getTime();
             const distance = weddingDate - now;
 
             if (distance > 0) {
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                document.getElementById("days").innerText = days < 10 ? "0" + days : days;
-                document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
-                document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
-                document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+                document.getElementById("days").innerText = String(Math.floor(distance / (1000 * 60 * 60 * 24))).padStart(2, '0');
+                document.getElementById("hours").innerText = String(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+                document.getElementById("minutes").innerText = String(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+                document.getElementById("seconds").innerText = String(Math.floor((distance % (1000 * 60)) / 1000)).padStart(2, '0');
             }
         }
-
         setInterval(updateCountdown, 1000);
         updateCountdown();
 
-        // Confetti Animation
         function createConfetti() {
             const container = document.getElementById('confetti-container');
-            const confettiCount = 35;
-            const colors = ['#d4a17c', '#6b7c5f', '#ffffff', '#2b362d'];
-
-            for (let i = 0; i < confettiCount; i++) {
-                const confetti = document.createElement('div');
-                confetti.classList.add('confetti');
-                confetti.style.left = Math.random() * 100 + '%';
-                confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
-                confetti.style.opacity = Math.random();
-                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-                if (Math.random() > 0.5) {
-                   confetti.style.borderRadius = '50%';
-                }
-                container.appendChild(confetti);
-
-                setTimeout(() => {
-                    confetti.remove();
-                }, 5000);
-            }
+            const confetti = document.createElement('div');
+            confetti.classList.add('confetti');
+            confetti.style.left = Math.random() * 100 + '%';
+            confetti.style.animationDuration = (Math.random() * 3 + 3) + 's';
+            confetti.style.backgroundColor = Math.random() > 0.5 ? '#c5a059' : '#2d3831';
+            container.appendChild(confetti);
+            setTimeout(() => confetti.remove(), 6000);
         }
-        setInterval(createConfetti, 3500);
-        createConfetti();
+        setInterval(createConfetti, 400);
     </script>
 </body>
 </html>
