@@ -3,30 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Junaid & Ruby - Wedding Invitation</title>
+    <title>Secret Trend - Sunday Funday Student Offer</title>
     
     <!-- WhatsApp Rich Preview Meta Tags -->
-    <meta property="og:title" content="Junaid & Ruby - Wedding Invitation">
-    <meta property="og:description" content="The Wedding Celebration on Saturday, 22 August 2026 at Vallil House, Ayanikkad. You are cordially invited!">
-    <meta property="og:image" content="https://junaidandruby.pages.dev/preview-image.jpg">
-    <meta property="og:url" content="https://junaidandruby.pages.dev/">
+    <meta property="og:title" content="Secret Trend - Sunday Funday Offer">
+    <meta property="og:description" content="Flat 10% to 40% Off on Every Purchase! Spin for Student Offer.">
+    <meta property="og:image" content="https://secrettrend.shop/banner.jpg">
+    <meta property="og:url" content="https://secrettrend.shop/">
     <meta property="og:type" content="website">
 
     <style>
-        :root {
-            --bg-color: #16221c;
-            --card-bg: #1e2d26;
-            --accent-color: #d4af37;
-            --text-main: #f3f4f6;
-            --text-muted: #9ca3af;
-        }
-
         body {
             margin: 0;
             padding: 0;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #070913 0%, #0b0f19 50%, #111827 100%);
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -35,139 +27,155 @@
             overflow-x: hidden;
         }
 
-        /* Opening Screen Overlay */
-        #welcome-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
+        /* Logo Header */
+        header {
             width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #0f1713 0%, #16221c 100%);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            z-index: 9999;
-            transition: opacity 0.8s ease;
-            text-align: center;
-            padding: 20px;
-        }
-
-        .welcome-logo {
-            font-size: 36px;
-            letter-spacing: 4px;
-            color: var(--accent-color);
-            margin-bottom: 10px;
-        }
-
-        .welcome-text {
-            font-size: 13px;
-            letter-spacing: 3px;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            margin-bottom: 30px;
-        }
-
-        .open-btn {
-            background: transparent;
-            border: 1px solid var(--accent-color);
-            color: var(--accent-color);
-            padding: 14px 35px;
-            font-size: 14px;
-            letter-spacing: 2px;
-            cursor: pointer;
-            border-radius: 30px;
-            transition: all 0.3s;
-            text-transform: uppercase;
-        }
-
-        .open-btn:hover {
-            background: var(--accent-color);
-            color: #16221c;
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
-        }
-
-        /* Main Website Header */
-        header {
-            width: 90%;
-            max-width: 600px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-            background: rgba(30, 45, 38, 0.85);
+            padding: 18px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(11, 15, 25, 0.85);
             backdrop-filter: blur(10px);
-            border-radius: 30px;
-            margin: 20px auto;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            border: 1px solid rgba(212, 175, 55, 0.2);
         }
 
-        .brand {
-            font-size: 18px;
-            letter-spacing: 2px;
-            color: var(--accent-color);
-        }
-
-        nav {
-            display: flex;
-            gap: 15px;
-            font-size: 11px;
-            letter-spacing: 1.5px;
+        .logo-main {
+            font-family: 'Georgia', serif;
+            font-size: 20px;
+            letter-spacing: 3px;
+            color: #f9fafb;
+            font-weight: 500;
             text-transform: uppercase;
         }
 
-        nav a {
-            color: var(--text-muted);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--accent-color);
+        .logo-sub {
+            font-size: 9px;
+            letter-spacing: 4px;
+            color: #f6ad55;
+            margin-top: 2px;
+            text-transform: uppercase;
         }
 
         .container {
-            width: 100%;
-            max-width: 500px;
-            padding: 20px;
-            box-sizing: border-box;
             text-align: center;
+            padding: 25px 20px;
+            max-width: 500px;
+            width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        /* Sections & Cards */
-        section {
-            margin: 50px 0;
-            padding: 30px 20px;
-            background: var(--card-bg);
-            border-radius: 20px;
-            border: 1px solid rgba(212, 175, 55, 0.15);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        .title-main {
+            font-family: 'Georgia', serif;
+            font-size: 30px;
+            font-weight: 400;
+            margin: 5px 0 0 0;
+            color: #f9fafb;
+            letter-spacing: 1px;
         }
 
-        .section-title {
+        .title-sub {
+            font-family: 'Georgia', serif;
+            font-style: italic;
             font-size: 28px;
-            color: var(--accent-color);
-            margin-bottom: 15px;
+            color: #f6ad55;
+            margin: 0 0 20px 0;
+            text-shadow: 0 0 20px rgba(246, 173, 85, 0.3);
         }
 
-        .bismillah {
-            font-size: 22px;
-            color: var(--accent-color);
-            margin-bottom: 10px;
+        .badge-btn {
+            background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+            color: #ffffff;
+            padding: 12px 26px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 13px;
+            letter-spacing: 1.5px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 0 25px rgba(217, 119, 6, 0.4);
+            margin-bottom: 25px;
+            border: none;
         }
 
-        /* Countdown */
+        /* Spinning Circle Effect */
+        .circle-box {
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, #065f46 0%, #022c22 100%);
+            border-radius: 50%;
+            margin: 0 auto 25px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 40px rgba(6, 95, 70, 0.6), inset 0 0 15px rgba(255, 255, 255, 0.1);
+            position: relative;
+            cursor: pointer;
+            transition: transform 1.2s cubic-bezier(0.15, 0.85, 0.35, 1.2);
+            border: 2px solid rgba(52, 211, 153, 0.3);
+        }
+
+        .circle-box.spin {
+            transform: rotate(720deg);
+        }
+
+        .circle-box::after {
+            content: '';
+            position: absolute;
+            width: 175px;
+            height: 175px;
+            border: 2px dashed rgba(255, 255, 255, 0.35);
+            border-radius: 50%;
+        }
+
+        .circle-text {
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            color: #ffffff;
+            z-index: 1;
+            text-align: center;
+            padding: 0 20px;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+            line-height: 1.4;
+        }
+
+        .theme-btn {
+            background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+            color: #ffffff;
+            border: none;
+            padding: 13px 32px;
+            border-radius: 25px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1.2px;
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(217, 119, 6, 0.4);
+            margin-bottom: 25px;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .theme-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 25px rgba(217, 119, 6, 0.6);
+        }
+
         .countdown-container {
             display: flex;
             justify-content: center;
             gap: 10px;
-            margin: 25px 0;
+            margin-bottom: 25px;
         }
 
         .countdown-box {
-            background: #16221c;
-            border: 1px solid rgba(212, 175, 55, 0.3);
+            background: rgba(17, 24, 39, 0.7);
+            border: 1px solid rgba(246, 173, 85, 0.25);
             border-radius: 12px;
             width: 65px;
             height: 75px;
@@ -175,206 +183,183 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            backdrop-filter: blur(5px);
         }
 
         .countdown-number {
-            font-size: 20px;
-            color: var(--accent-color);
+            font-family: 'Georgia', serif;
+            font-size: 22px;
+            color: #f6ad55;
             font-weight: bold;
         }
 
         .countdown-label {
-            font-size: 8px;
-            letter-spacing: 1px;
-            color: var(--text-muted);
+            font-size: 9px;
+            letter-spacing: 1.2px;
+            color: #9ca3af;
             margin-top: 4px;
         }
 
-        /* Audio Floating Button */
-        .audio-control {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            width: 45px;
-            height: 45px;
-            background: var(--accent-color);
-            color: #16221c;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.5);
-            z-index: 1000;
-            font-size: 18px;
-        }
-
-        .couple-img {
-            width: 100%;
-            border-radius: 12px;
-            margin-bottom: 15px;
-            border: 1px solid rgba(212, 175, 55, 0.3);
-        }
-
-        .btn-action {
-            display: inline-block;
-            background: var(--accent-color);
-            color: #16221c;
-            padding: 12px 25px;
-            border-radius: 25px;
-            text-decoration: none;
+        .event-date {
             font-size: 12px;
-            letter-spacing: 1.5px;
-            font-weight: bold;
-            margin-top: 15px;
-            transition: transform 0.2s;
+            letter-spacing: 2px;
+            color: #e5e7eb;
+            font-weight: 500;
+            margin-bottom: 4px;
         }
 
-        .btn-action:hover {
-            transform: scale(1.05);
+        .footer-links {
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            font-size: 12px;
+            letter-spacing: 1px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 15px;
+            width: 100%;
+        }
+
+        .footer-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #f6ad55;
         }
     </style>
 </head>
 <body>
 
-    <!-- Opening Welcome Screen -->
-    <div id="welcome-screen">
-        <div class="welcome-logo">J & R</div>
-        <div class="welcome-text">You Are Cordially Invited</div>
-        <button class="open-btn" onclick="openInvitation()">Open Invitation</button>
-    </div>
-
-    <!-- Background Audio (Replace with your audio link if needed) -->
-    <audio id="bg-music" loop>
-        <source src="https://assets.mixkit.co/music/preview/mixkit-romantic-serenade-499.mp3" type="audio/mp3">
-    </audio>
-
-    <!-- Floating Audio Control Button -->
-    <div class="audio-control" id="audioToggle" onclick="toggleAudio()">🎵</div>
-
-    <!-- Top Navigation Header -->
+    <!-- Minimalist Premium Logo Header -->
     <header>
-        <div class="brand">J & R</div>
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#couple">Couple</a>
-            <a href="#story">Story</a>
-            <a href="#events">Events</a>
-        </nav>
+        <div class="logo-main">SECRET TREND</div>
+        <div class="logo-sub">Premium Collectibles</div>
     </header>
 
     <div class="container">
-        
-        <!-- Home / Main Section -->
-        <section id="home">
-            <div class="bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
-            <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 20px;">In the name of Allah, the Most Gracious, the Most Merciful</p>
-            
-            <p style="letter-spacing: 2px; font-size: 11px; text-transform: uppercase; color: var(--text-muted);">The Wedding Of</p>
-            <h1 class="section-title" style="margin: 10px 0;">Junaid & Ruby</h1>
-            
-            <div class="countdown-container">
-                <div class="countdown-box">
-                    <span class="countdown-number" id="days">17</span>
-                    <span class="countdown-label">DAYS</span>
-                </div>
-                <div class="countdown-box">
-                    <span class="countdown-number" id="hours">10</span>
-                    <span class="countdown-label">HOURS</span>
-                </div>
-                <div class="countdown-box">
-                    <span class="countdown-number" id="minutes">32</span>
-                    <span class="countdown-label">MINUTES</span>
-                </div>
-                <div class="countdown-box">
-                    <span class="countdown-number" id="seconds">54</span>
-                    <span class="countdown-label">SECONDS</span>
-                </div>
+        <h1 class="title-main">Secret Trend</h1>
+        <div class="title-sub">Sunday Funday Offer</div>
+
+        <div class="badge-btn">
+            ⚡ FLAT 10% TO 40% OFF ⚡
+        </div>
+
+        <!-- Interactive Spinning Circle with 8-Step Results -->
+        <div class="circle-box" id="spinCircle" onclick="triggerSpin()">
+            <div class="circle-text" id="spinText">SPIN FOR<br>STUDENT OFFER</div>
+        </div>
+
+        <!-- Active Website Link Button -->
+        <a href="https://secrettrend.shop/" target="_blank" class="theme-btn">🛍️ ORDER ON WEBSITE</a>
+
+        <!-- Live Countdown Timer for Next Sunday -->
+        <div class="countdown-container">
+            <div class="countdown-box">
+                <span class="countdown-number" id="days">00</span>
+                <span class="countdown-label">DAYS</span>
             </div>
+            <div class="countdown-box">
+                <span class="countdown-number" id="hours">00</span>
+                <span class="countdown-label">HOURS</span>
+            </div>
+            <div class="countdown-box">
+                <span class="countdown-number" id="minutes">00</span>
+                <span class="countdown-label">MINUTES</span>
+            </div>
+            <div class="countdown-box">
+                <span class="countdown-number" id="seconds">00</span>
+                <span class="countdown-label">SECONDS</span>
+            </div>
+        </div>
 
-            <p style="font-size: 13px; letter-spacing: 1.5px;">SATURDAY • 22 AUGUST 2026</p>
-            <p style="font-size: 11px; letter-spacing: 1px; color: var(--text-muted);">VALLIL HOUSE, AYANIKKAD</p>
-        </section>
+        <div class="event-date" id="eventDateText">SUNDAY • LOADING...</div>
 
-        <!-- Couple Section -->
-        <section id="couple">
-            <h2 class="section-title">The Couple</h2>
-            <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=600&q=80" alt="Junaid & Ruby" class="couple-img">
-            <h3 style="color: var(--accent-color); margin: 10px 0 5px 0;">Junaid & Ruby Fathima</h3>
-            <p style="font-size: 11px; color: var(--text-muted); letter-spacing: 1px;">TOGETHER WITH THEIR FAMILIES</p>
-        </section>
-
-        <!-- Story Section -->
-        <section id="story">
-            <h2 class="section-title">Our Story</h2>
-            <p style="font-size: 13px; color: var(--text-muted); line-height: 1.6;">
-                What was meant to be a formal family visit turned into something much more. A short chat wasn't enough for us—we decided to start a lifetime conversation together.
-            </p>
-        </section>
-
-        <!-- Events Section -->
-        <section id="events">
-            <h2 class="section-title">Wedding Celebration</h2>
-            <p style="font-size: 13px; margin-bottom: 10px;">Saturday, 22 August 2026</p>
-            <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 20px;">11:00 AM - 4:00 PM</p>
-            <p style="font-size: 13px;">Vallil Groom House, Ayanikkad</p>
-            <a href="https://maps.google.com" target="_blank" class="btn-action">📍 VIEW ON MAP</a>
-        </section>
-
+        <!-- Instagram Links Footer -->
+        <div class="footer-links">
+            <a href="https://www.instagram.com/secrettrend_official?igsh=YXd4Y2V5bG5hdm93&utm_source=qr" target="_blank">Secret Trend Official (Instagram)</a>
+            <a href="https://www.instagram.com/secrettrendshop?igsh=c3g5Y2pnbm44bmFt&utm_source=qr" target="_blank">Secret Trend Shop (Instagram)</a>
+        </div>
     </div>
 
     <script>
-        const music = document.getElementById('bg-music');
-        const welcomeScreen = document.getElementById('welcome-screen');
-        const audioToggle = document.getElementById('audioToggle');
-        let isPlaying = false;
+        let spinCount = 0;
 
-        // Open Invitation & Play Sound
-        function openInvitation() {
-            welcomeScreen.style.opacity = '0';
+        // Spin Animation & Sequential 8-Step Results Function
+        function triggerSpin() {
+            const circle = document.getElementById('spinCircle');
+            const spinText = document.getElementById('spinText');
+            
+            circle.classList.remove('spin');
+            void circle.offsetWidth; // Trigger reflow
+            circle.classList.add('spin');
+
+            spinCount++;
+
             setTimeout(() => {
-                welcomeScreen.style.display = 'none';
-            }, 800);
-
-            music.play().then(() => {
-                isPlaying = true;
-                audioToggle.innerText = "⏸️";
-            }).catch(error => {
-                console.log("Audio play blocked:", error);
-            });
+                if (spinCount === 1) {
+                    spinText.innerHTML = "YOU GOT<br>10% OFF";
+                } else if (spinCount === 2) {
+                    spinText.innerHTML = "YOU GOT<br>10% OFF";
+                } else if (spinCount >= 3 && spinCount <= 6) {
+                    spinText.innerHTML = "NO OFFER<br>FOUND";
+                } else if (spinCount === 7 || spinCount === 8) {
+                    spinText.innerHTML = "YOU GOT<br>25% OFF";
+                }
+                
+                if (spinCount >= 8) {
+                    spinCount = 0; // Reset after 8th spin
+                }
+            }, 600);
         }
 
-        // Toggle Audio on Button Click
-        function toggleAudio() {
-            if (isPlaying) {
-                music.pause();
-                isPlaying = false;
-                audioToggle.innerText = "▶️";
+        // Calculate Next Sunday Countdown
+        function getNextSunday() {
+            const now = new Date();
+            const resultDate = new Date(now.getTime());
+            
+            const dayOfWeek = now.getDay(); // 0 is Sunday
+            const daysUntilSunday = (7 - dayOfWeek) % 7;
+            
+            if (daysUntilSunday === 0) {
+                resultDate.setDate(now.getDate() + 7);
             } else {
-                music.play();
-                isPlaying = true;
-                audioToggle.innerText = "⏸️";
+                resultDate.setDate(now.getDate() + daysUntilSunday);
             }
+            
+            resultDate.setHours(10, 0, 0, 0);
+            return resultDate;
         }
 
-        // Countdown Timer Logic to August 22, 2026
-        const weddingDate = new Date("August 22, 2026 11:00:00").getTime();
+        const targetDate = getNextSunday();
+
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('eventDateText').innerText = targetDate.toLocaleDateString('en-US', options).toUpperCase();
 
         function updateCountdown() {
-            const now = new Date().getTime();
-            const diff = weddingDate - now;
+            const now = new Date();
+            const diff = targetDate - now;
 
-            if (diff > 0) {
-                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-                document.getElementById('days').innerText = String(days).padStart(2, '0');
-                document.getElementById('hours').innerText = String(hours).padStart(2, '0');
-                document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
-                document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
+            if (diff <= 0) {
+                document.getElementById('days').innerText = "00";
+                document.getElementById('hours').innerText = "00";
+                document.getElementById('minutes').innerText = "00";
+                document.getElementById('seconds').innerText = "00";
+                return;
             }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('days').innerText = String(days).padStart(2, '0');
+            document.getElementById('hours').innerText = String(hours).padStart(2, '0');
+            document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
         }
 
         setInterval(updateCountdown, 1000);
