@@ -2,445 +2,225 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Mass Reunion - 10th Class Family</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secret Trend - Mega Student Offer</title>
     <style>
-        :root {
-            --primary: #0f172a;
-            --accent: #f59e0b;
-            --bg-color: #0b0f19;
-            --card-bg: rgba(30, 41, 59, 0.75);
-        }
-
-        * {
-            box-sizing: border-box;
+        body {
             margin: 0;
             padding: 0;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: var(--bg-color);
-            color: #f8fafc;
-            text-align: center;
-            overflow-x: hidden;
+            background-color: #0b0f19;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
             flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
             min-height: 100vh;
+            overflow-x: hidden;
         }
 
-        /* Moving Particle Background */
-        .confetti-container {
-            position: fixed;
-            top: 0;
-            left: 0;
+        header {
             width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .confetti {
-            position: absolute;
-            width: 6px;
-            height: 6px;
-            background-color: var(--accent);
-            opacity: 0.8;
-            animation: fall linear infinite;
-        }
-
-        @keyframes fall {
-            0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
-        }
-
-        /* Navigation Bar */
-        nav {
-            background: rgba(15, 23, 42, 0.9);
-            backdrop-filter: blur(10px);
-            padding: 15px 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
             display: flex;
             justify-content: center;
-            align-items: center;
             gap: 25px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-            z-index: 1000;
-            font-size: 0.75rem;
-            letter-spacing: 3px;
+            padding: 20px 0;
+            font-size: 13px;
+            letter-spacing: 2px;
+            font-weight: 600;
+            color: #8da4ef;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        nav a {
-            text-decoration: none;
-            color: #f8fafc;
-            font-weight: 600;
+        header span {
+            cursor: pointer;
             transition: color 0.3s;
         }
 
-        nav a:hover {
-            color: var(--accent);
+        header span:hover {
+            color: #ffffff;
         }
 
-        /* Header Section */
-        header {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+        .container {
+            text-align: center;
+            padding: 30px 20px;
+            max-width: 500px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .title-main {
+            font-family: 'Georgia', serif;
+            font-size: 36px;
+            font-weight: 400;
+            margin: 10px 0 0 0;
+            color: #f3f4f6;
+        }
+
+        .title-sub {
+            font-family: 'Georgia', serif;
+            font-style: italic;
+            font-size: 38px;
+            color: #f6ad55;
+            margin: 0 0 25px 0;
+            text-shadow: 0 0 15px rgba(246, 173, 85, 0.4);
+        }
+
+        .badge-btn {
+            background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+            color: #ffffff;
+            padding: 14px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 1px;
+            display: inline-flex;
             align-items: center;
-            padding: 120px 20px 50px;
+            gap: 8px;
+            box-shadow: 0 0 20px rgba(217, 119, 6, 0.5);
+            margin-bottom: 35px;
+            border: none;
+        }
+
+        .circle-box {
+            width: 210px;
+            height: 210px;
+            background: radial-gradient(circle, #f43f5e 0%, #3b82f6 100%);
+            border-radius: 50%;
+            margin: 0 auto 35px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 35px rgba(244, 63, 94, 0.4);
             position: relative;
         }
 
-        .header-sub-title {
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            margin-bottom: 10px;
-            color: var(--accent);
-            font-weight: 700;
-        }
-
-        .couple-names-header {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.2rem;
-            color: #ffffff;
-            margin: 10px 0;
-            font-weight: 700;
-            text-shadow: 0 0 20px rgba(245, 158, 11, 0.4);
-        }
-
-        .couple-names-header span {
-            color: var(--accent);
-            font-style: italic;
-        }
-
-        /* Mass Mohanlal/Mammootty Style Hype Box with Image */
-        .mass-intro-box {
-            margin: 20px 0;
-            width: 240px;
-            height: 240px;
+        .circle-box::after {
+            content: '';
+            position: absolute;
+            width: 185px;
+            height: 185px;
+            border: 2px dashed rgba(255, 255, 255, 0.3);
             border-radius: 50%;
-            padding: 5px;
-            background: linear-gradient(135deg, #f59e0b, #ef4444, #3b82f6);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 0 40px rgba(245, 158, 11, 0.5);
-            animation: pulseGlow 3s infinite alternate;
         }
 
-        @keyframes pulseGlow {
-            0% { transform: scale(1); box-shadow: 0 0 20px rgba(245, 158, 11, 0.4); }
-            100% { transform: scale(1.03); box-shadow: 0 0 40px rgba(245, 158, 11, 0.8); }
-        }
-
-        .mass-intro-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 4px solid var(--primary);
-        }
-
-        /* Hype Title Tag */
-        .special-tag {
-            background: linear-gradient(90deg, #b45309, #d97706);
+        .circle-text {
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 1px;
             color: #ffffff;
-            padding: 10px 25px;
-            border-radius: 30px;
-            font-size: 0.95rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 20px rgba(217, 119, 6, 0.5);
-            text-transform: uppercase;
-            animation: bounceSub 2s infinite;
+            z-index: 1;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
 
-        @keyframes bounceSub {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-6px); }
-        }
-
-        /* Music Button */
-        .music-btn {
-            background: linear-gradient(135deg, #d97706, #b45309);
-            color: white;
+        .theme-btn {
+            background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+            color: #ffffff;
             border: none;
             padding: 12px 30px;
-            border-radius: 30px;
-            font-size: 0.85rem;
-            letter-spacing: 2px;
-            font-weight: 700;
+            border-radius: 25px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
             cursor: pointer;
-            box-shadow: 0 5px 20px rgba(217, 119, 6, 0.4);
-            margin: 10px 0 25px;
-            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(217, 119, 6, 0.4);
+            margin-bottom: 40px;
         }
 
-        .music-btn:hover {
-            transform: scale(1.05);
-        }
-
-        /* Countdown Timer */
         .countdown-container {
             display: flex;
-            gap: 12px;
-            margin: 15px 0;
             justify-content: center;
+            gap: 12px;
+            margin-bottom: 35px;
         }
 
-        .time-box {
-            background: var(--card-bg);
-            backdrop-filter: blur(5px);
-            padding: 20px 12px;
-            border-radius: 16px;
-            min-width: 65px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            border: 1px solid rgba(245, 158, 11, 0.3);
-        }
-
-        .time-box span {
-            display: block;
-            font-size: 2.2rem;
-            font-weight: 700;
-            font-family: 'Playfair Display', serif;
-            color: var(--accent);
-        }
-
-        .time-box p {
-            margin: 5px 0 0;
-            font-size: 0.65rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: #94a3b8;
-            font-weight: 600;
-        }
-
-        .event-details {
-            font-size: 0.9rem;
-            letter-spacing: 2px;
-            margin-top: 25px;
-            color: #cbd5e1;
-            line-height: 1.8;
-            font-weight: 500;
-        }
-
-        /* Sections */
-        .section {
-            padding: 90px 20px;
-            max-width: 700px;
-            margin: auto;
-        }
-
-        .section h2 {
-            color: #ffffff;
-            font-size: 2.8rem;
-            margin-bottom: 25px;
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-        }
-
-        .card {
-            background: var(--card-bg);
-            backdrop-filter: blur(10px);
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-            margin-bottom: 25px;
-            text-align: left;
-            line-height: 1.8;
-            color: #cbd5e1;
-            border: 1px solid rgba(245, 158, 11, 0.2);
-        }
-
-        .couple-grid {
+        .countdown-box {
+            background: #111827;
+            border: 1px solid rgba(246, 173, 85, 0.3);
+            border-radius: 12px;
+            width: 65px;
+            height: 75px;
             display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
 
-        .person-card {
-            flex: 1;
-            min-width: 280px;
-            background: var(--card-bg);
-            padding: 35px;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-            text-align: center;
-            border: 1px solid rgba(245, 158, 11, 0.2);
+        .countdown-number {
+            font-family: 'Georgia', serif;
+            font-size: 22px;
+            color: #f6ad55;
+            font-weight: bold;
         }
 
-        .person-card h3 {
-            color: var(--accent);
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            margin-bottom: 12px;
-            font-weight: 700;
+        .countdown-label {
+            font-size: 9px;
+            letter-spacing: 1px;
+            color: #9ca3af;
+            margin-top: 4px;
         }
 
-        .person-card p {
-            color: #94a3b8;
-            font-size: 0.9rem;
-            line-height: 1.6;
-        }
-
-        /* Footer */
-        .footer {
-            background: #090d16;
-            color: #64748b;
-            padding: 50px 20px;
-            font-size: 0.85rem;
-            margin-top: auto;
+        .event-date {
+            font-size: 13px;
             letter-spacing: 2px;
+            color: #e5e7eb;
+            font-weight: 500;
+            margin-bottom: 5px;
         }
 
-        /* Responsive */
-        @media (max-width: 600px) {
-            .couple-names-header { font-size: 2.3rem; }
-            .mass-intro-box { width: 190px; height: 190px; }
-            .time-box { padding: 15px 8px; min-width: 55px; }
-            .time-box span { font-size: 1.6rem; }
-            .section h2 { font-size: 2rem; }
+        .event-location {
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            color: #9ca3af;
         }
     </style>
 </head>
 <body>
 
-    <!-- Moving Confetti Background -->
-    <div class="confetti-container" id="confetti-container"></div>
-
-    <!-- Navigation Bar -->
-    <nav>
-        <a href="#home">HOME</a>
-        <a href="#memories">MEMORIES</a>
-        <a href="#about">THE BOSS</a>
-        <a href="#events">VENUE</a>
-    </nav>
-
-    <!-- Header Section -->
-    <header id="home">
-        <p class="header-sub-title">🔥 10th Class Mass Reunion 🔥</p>
-        <h1 class="couple-names-header">The Ultimate <span>Showdown</span></h1>
-        
-        <!-- Special Hype Tag for Salman -->
-        <div class="special-tag">⚡ THE MEGA LAUNCH &bull; SALMAN ⚡</div>
-
-        <!-- Mass Photo Container -->
-        <div class="mass-intro-box">
-            <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/..." alt="Salman Mass Look">
-        </div>
-
-        <!-- Background Audio -->
-        <audio id="bg-music" loop>
-            <source src="https://www.bensound.com/bensound-music/bensound-tenderness.mp3" type="audio/mp3">
-        </audio>
-        <button class="music-btn" onclick="toggleMusic()">🔊 PLAY MASS THEME</button>
-
-        <!-- Countdown -->
-        <div class="countdown-container">
-            <div class="time-box"><span id="days">00</span><p>Days</p></div>
-            <div class="time-box"><span id="hours">00</span><p>Hours</p></div>
-            <div class="time-box"><span id="minutes">00</span><p>Minutes</p></div>
-            <div class="time-box"><span id="seconds">00</span><p>Seconds</p></div>
-        </div>
-
-        <div class="event-details">
-            SATURDAY &bull; 22 AUGUST 2026<br>
-            VALLIL HOUSE, AYANIKKAD
-        </div>
+    <header>
+        <span>HOME</span>
+        <span>COLLECTIONS</span>
+        <span>ABOUT</span>
+        <span>CONTACT</span>
     </header>
 
-    <!-- Highlights Section -->
-    <div class="section" id="memories">
-        <h2>Reunion Highlights</h2>
-        <div class="couple-grid">
-            <div class="person-card">
-                <h3>Legendary Days</h3>
-                <p>Reliving the golden era, unmatched bench power, and historic school memories.</p>
+    <div class="container">
+        <h1 class="title-main">Secret Trend</h1>
+        <div class="title-sub">Mega Student Offer</div>
+
+        <div class="badge-btn">
+            ⚡ THE MEGA LAUNCH • SOON ⚡
+        </div>
+
+        <div class="circle-box">
+            <div class="circle-text">Student Offer Launch</div>
+        </div>
+
+        <button class="theme-btn">🔊 PLAY ANTHEM</button>
+
+        <div class="countdown-container">
+            <div class="countdown-box">
+                <span class="countdown-number">17</span>
+                <span class="countdown-label">DAYS</span>
             </div>
-            <div class="person-card">
-                <h3>Full Throttle</h3>
-                <p>Catching up with the squad, sharing high-voltage stories, and celebrating together.</p>
+            <div class="countdown-box">
+                <span class="countdown-number">12</span>
+                <span class="countdown-label">HOURS</span>
+            </div>
+            <div class="countdown-box">
+                <span class="countdown-number">02</span>
+                <span class="countdown-label">MINUTES</span>
+            </div>
+            <div class="countdown-box">
+                <span class="countdown-number">18</span>
+                <span class="countdown-label">SECONDS</span>
             </div>
         </div>
+
+        <div class="event-date">SATURDAY • 22 AUGUST 2026</div>
+        <div class="event-location">SECRET TREND STORE, ONLINE</div>
     </div>
 
-    <!-- About Section -->
-    <div class="section" id="about">
-        <h2>Welcome Salman & Crew</h2>
-        <div class="card">
-            <p style="text-align: center; font-size: 1rem;">
-                കാലങ്ങൾ എത്ര കഴിഞ്ഞാലും മാസ് കുറയാത്ത നമ്മുടെ സൗഹൃദം! സൽമാന്റെ വരവോടെ ഈ ഗെറ്റ്-ടുಗೆదർ ഒരു പടക്കം പോലെ കത്താൻ പോവുകയാണ്. ഫാമിലി ഒന്നിച്ച് ഇറങ്ങുന്ന ഈ മാസ്സീവ് മീറ്റിംഗിലേക്ക് ഏവരെയും സ്വാഗതം ചെയ്യുന്നു!
-            </p>
-        </div>
-    </div>
-
-    <!-- Events Section -->
-    <div class="section" id="events">
-        <h2>Event Details</h2>
-        <div class="card">
-            <p style="margin-top: 0;"><strong>📅 Date:</strong> Saturday, August 22, 2026</p>
-            <p><strong>⏰ Time:</strong> 10:00 AM - 4:00 PM</p>
-            <p style="margin-bottom: 0;"><strong>📍 Venue:</strong> Vallil House, Ayanikkad</p>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <div class="footer">
-        <p>THE LEGEND IS BACK! &hearts; 10th CLASS FAMILY &bull; SALMAN</p>
-    </div>
-
-    <!-- Scripts -->
-    <script>
-        let isPlaying = false;
-        function toggleMusic() {
-            const music = document.getElementById("bg-music");
-            const btn = document.querySelector(".music-btn");
-            if (isPlaying) {
-                music.pause();
-                btn.innerText = "🔊 PLAY MASS THEME";
-                isPlaying = false;
-            } else {
-                music.play().then(() => {
-                    btn.innerText = "🔇 PAUSE THEME";
-                    isPlaying = true;
-                }).catch(e => {
-                    alert("Please interact with the page to play music.");
-                });
-            }
-        }
-
-        const eventDate = new Date("August 22, 2026 10:00:00").getTime();
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const distance = eventDate - now;
-
-            if (distance > 0) {
-                document.getElementById("days").innerText = String(Math.floor(distance / (1000 * 60 * 60 * 24))).padStart(2, '0');
-                document.getElementById("hours").innerText = String(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
-                document.getElementById("minutes").innerText = String(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
-                document.getElementById("seconds").innerText = String(Math.floor((distance % (1000 * 60)) / 1000)).padStart(2, '0');
-            }
-        }
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
-
-        function createConfetti() {
-            const container = document.getElementById('confetti-container');
-            const confetti = document.createElement('div');
-            confetti.classList.add('confetti');
-            confetti.style.left = Math.random() * 100 + '%';
-            confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
-            confetti.style.backgroundColor = Math.random() > 0.5 ? '#f59e0b' : '#3b82f6';
-            container.appendChild(confetti);
-            setTimeout(() => confetti.remove(), 4000);
-        }
-        setInterval(createConfetti, 300);
-    </script>
 </body>
 </html>
