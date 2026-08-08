@@ -5,18 +5,91 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thaha & Rashi - 15th Anniversary</title>
     <style>
-        body { margin: 0; background-color: #1a2a1a; color: #d4af37; font-family: 'Georgia', serif; text-align: center; }
-        .container { padding: 40px 20px; animation: fadeIn 2s; }
-        .hero h1 { font-size: 3rem; margin-bottom: 10px; }
-        .countdown { display: flex; justify-content: center; gap: 15px; margin: 30px 0; }
-        .timer-box { background: rgba(255,255,255,0.05); padding: 15px; border: 1px solid #d4af37; border-radius: 8px; width: 70px; }
-        .timer-val { font-size: 24px; display: block; }
-        .photo-gallery { display: flex; flex-direction: column; gap: 20px; align-items: center; margin-top: 40px; }
-        .photo-card { width: 90%; max-width: 500px; border: 3px solid #d4af37; padding: 5px; background: #fff; transition: transform 0.3s; }
-        .photo-card:hover { transform: scale(1.05); }
-        img { width: 100%; height: auto; display: block; }
-        .footer { font-size: 2rem; font-style: italic; margin-top: 50px; padding-bottom: 50px; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        body {
+            margin: 0;
+            background-color: #122012;
+            color: #d4af37;
+            font-family: 'Georgia', serif;
+            text-align: center;
+        }
+        .container {
+            padding: 30px 15px;
+            max-width: 600px;
+            margin: 0 auto;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+            letter-spacing: 2px;
+        }
+        .subtitle {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            color: #e6c687;
+        }
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 25px 0;
+        }
+        .timer-box {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 12px 8px;
+            border: 1px solid #d4af37;
+            border-radius: 8px;
+            min-width: 60px;
+        }
+        .timer-val {
+            font-size: 20px;
+            font-weight: bold;
+            display: block;
+        }
+        .timer-label {
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .photo-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+            margin-top: 30px;
+        }
+        .photo-card {
+            width: 100%;
+            max-width: 450px;
+            border: 2px solid #d4af37;
+            padding: 6px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        .photo-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+            display: block;
+        }
+        .caption {
+            margin-top: 8px;
+            font-size: 1rem;
+            color: #333;
+            font-weight: bold;
+        }
+        .footer {
+            font-size: 2rem;
+            font-style: italic;
+            margin-top: 40px;
+            padding-bottom: 30px;
+            color: #d4af37;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
 <body>
@@ -24,21 +97,36 @@
     <div class="container">
         <div class="hero">
             <h1>Welcome</h1>
-            <p>Thaha & Rashi | 15th Anniversary</p>
+            <div class="subtitle">Thaha & Rashi | 15th Anniversary</div>
             <div class="countdown" id="timer">
-                <div class="timer-box"><span class="timer-val" id="days">0</span>Days</div>
-                <div class="timer-box"><span class="timer-val" id="hours">0</span>Hrs</div>
-                <div class="timer-box"><span class="timer-val" id="minutes">0</span>Mins</div>
-                <div class="timer-box"><span class="timer-val" id="seconds">0</span>Secs</div>
+                <div class="timer-box"><span class="timer-val" id="days">0</span><span class="timer-label">Days</span></div>
+                <div class="timer-box"><span class="timer-val" id="hours">0</span><span class="timer-label">Hrs</span></div>
+                <div class="timer-box"><span class="timer-val" id="minutes">0</span><span class="timer-label">Mins</span></div>
+                <div class="timer-box"><span class="timer-val" id="seconds">0</span><span class="timer-label">Secs</span></div>
             </div>
         </div>
 
         <div class="photo-gallery">
-            <div class="photo-card"><img src="image_10.png" alt="Couple"></div>
-            <div class="photo-card"><img src="image_9.png" alt="Child 1"></div>
-            <div class="photo-card"><img src="image_11.png" alt="Child 2"></div>
-            <div class="photo-card"><img src="image_12.png" alt="Child 3"></div>
-            <div class="photo-card"><img src="image_13.png" alt="Family"></div>
+            <!-- 1. Couple Photo -->
+            <div class="photo-card">
+                <img src="image_16.png" alt="Thaha & Rashi">
+                <div class="caption">Thaha & Rashi (15th Anniversary)</div>
+            </div>
+            <!-- 2. First Child - Aliya -->
+            <div class="photo-card">
+                <img src="image_17.png" alt="Aliya">
+                <div class="caption">First Child - Aliya (13 Years)</div>
+            </div>
+            <!-- 3. Second Child - Ayisha -->
+            <div class="photo-card">
+                <img src="image_18.png" alt="Ayisha">
+                <div class="caption">Second Child - Ayisha (9 Years)</div>
+            </div>
+            <!-- 4. Third Child & Family -->
+            <div class="photo-card">
+                <img src="image_19.png" alt="Ifa & Family">
+                <div class="caption">Third Child - Ifa (5 Years) & Family</div>
+            </div>
         </div>
 
         <div class="footer">Alhamdulillah</div>
@@ -49,12 +137,16 @@
             const target = new Date("October 1, 2026 00:00:00").getTime();
             const now = new Date().getTime();
             const diff = target - now;
-            document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
-            document.getElementById("hours").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            document.getElementById("minutes").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            document.getElementById("seconds").innerText = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            if (diff > 0) {
+                document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
+                document.getElementById("hours").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                document.getElementById("minutes").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                document.getElementById("seconds").innerText = Math.floor((diff % (1000 * 60)) / 1000);
+            }
         }
         setInterval(updateTimer, 1000);
+        updateTimer();
     </script>
 </body>
 </html>
