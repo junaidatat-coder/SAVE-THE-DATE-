@@ -1,58 +1,60 @@
 <!DOCTYPE html>
-<html lang="ml">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>15th Anniversary Invitation</title>
+    <title>Thaha & Rashi - 15th Anniversary</title>
     <style>
-        body { font-family: sans-serif; text-align: center; padding: 20px; }
-        .hero { margin-bottom: 30px; }
-        .countdown { font-size: 24px; font-weight: bold; color: #d35400; }
-        .gallery { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 20px; }
-        .photo-box { width: 150px; }
-        img { width: 100%; border-radius: 10px; }
+        body { margin: 0; background-color: #1a2a1a; color: #d4af37; font-family: 'Georgia', serif; text-align: center; }
+        .container { padding: 40px 20px; animation: fadeIn 2s; }
+        .hero h1 { font-size: 3rem; margin-bottom: 10px; }
+        .countdown { display: flex; justify-content: center; gap: 15px; margin: 30px 0; }
+        .timer-box { background: rgba(255,255,255,0.05); padding: 15px; border: 1px solid #d4af37; border-radius: 8px; width: 70px; }
+        .timer-val { font-size: 24px; display: block; }
+        .photo-gallery { display: flex; flex-direction: column; gap: 20px; align-items: center; margin-top: 40px; }
+        .photo-card { width: 90%; max-width: 500px; border: 3px solid #d4af37; padding: 5px; background: #fff; transition: transform 0.3s; }
+        .photo-card:hover { transform: scale(1.05); }
+        img { width: 100%; height: auto; display: block; }
+        .footer { font-size: 2rem; font-style: italic; margin-top: 50px; padding-bottom: 50px; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
 </head>
 <body>
 
-    <div class="hero">
-        <h1>Thaha & Rashi</h1>
-        <h2>15th Anniversary Coming Soon!</h2>
-        <!-- ഒക്ടോബർ 1 2026-ലേക്കുള്ള കൗണ്ട്‌ഡൗൺ -->
-        <div id="timer" class="countdown"></div>
-    </div>
+    <div class="container">
+        <div class="hero">
+            <h1>Welcome</h1>
+            <p>Thaha & Rashi | 15th Anniversary</p>
+            <div class="countdown" id="timer">
+                <div class="timer-box"><span class="timer-val" id="days">0</span>Days</div>
+                <div class="timer-box"><span class="timer-val" id="hours">0</span>Hrs</div>
+                <div class="timer-box"><span class="timer-val" id="minutes">0</span>Mins</div>
+                <div class="timer-box"><span class="timer-val" id="seconds">0</span>Secs</div>
+            </div>
+        </div>
 
-    <h3>ഞങ്ങളുടെ മക്കൾ:</h3>
-    <div class="gallery">
-        <div class="photo-box">
-            <img src="aliya.jpg" alt="Aliya">
-            <p>ആലിയ (13)</p>
+        <div class="photo-gallery">
+            <div class="photo-card"><img src="image_10.png" alt="Couple"></div>
+            <div class="photo-card"><img src="image_9.png" alt="Child 1"></div>
+            <div class="photo-card"><img src="image_11.png" alt="Child 2"></div>
+            <div class="photo-card"><img src="image_12.png" alt="Child 3"></div>
+            <div class="photo-card"><img src="image_13.png" alt="Family"></div>
         </div>
-        <div class="photo-box">
-            <img src="ayisha.jpg" alt="Ayisha">
-            <p>ആയിഷ (9)</p>
-        </div>
-        <div class="photo-box">
-            <img src="ifa.jpg" alt="Ifa">
-            <p>ഐഫ (5)</p>
-        </div>
-    </div>
 
-    <div class="footer">
-        <img src="family.jpg" alt="Family Photo" style="width:300px;">
-        <p>അൽഹംദുലില്ലാഹ്</p>
+        <div class="footer">Alhamdulillah</div>
     </div>
 
     <script>
-        // കൗണ്ട്ഡൗൺ സ്ക്രിപ്റ്റ്
-        const targetDate = new Date("Oct 1, 2026 00:00:00").getTime();
-        const timer = setInterval(function() {
+        function updateTimer() {
+            const target = new Date("October 1, 2026 00:00:00").getTime();
             const now = new Date().getTime();
-            const distance = targetDate - now;
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            document.getElementById("timer").innerHTML = days + " ദിവസങ്ങൾ ബാക്കി!";
-        }, 1000);
+            const diff = target - now;
+            document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
+            document.getElementById("hours").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            document.getElementById("minutes").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            document.getElementById("seconds").innerText = Math.floor((diff % (1000 * 60)) / 1000);
+        }
+        setInterval(updateTimer, 1000);
     </script>
-
 </body>
 </html>
