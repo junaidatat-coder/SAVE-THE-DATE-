@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Secret Trend - Horse Ride Funday</title>
+    <title>Secret Trend - Horse Ride Game</title>
     
-    <meta property="og:title" content="Secret Trend - Horse Ride Funday">
-    <meta property="og:description" content="Fast! Fast! Fast! Experience the thrill!">
+    <meta property="og:title" content="Secret Trend - Horse Ride Game">
+    <meta property="og:description" content="Touch to Run & Jump! Experience the ultimate adventure.">
     <meta property="og:image" content="https://secrettrend.shop/banner.jpg">
     <meta property="og:url" content="https://secrettrend.shop/">
     <meta property="og:type" content="website">
@@ -103,7 +103,7 @@
             border: none;
         }
 
-        /* Interactive Horse Ride Box */
+        /* Interactive Game Box */
         .horse-box {
             width: 240px;
             height: 240px;
@@ -118,16 +118,28 @@
             position: relative;
             cursor: pointer;
             border: 2px solid rgba(52, 211, 153, 0.3);
-            transition: transform 0.1s ease;
+            transition: transform 0.2s ease;
         }
 
-        .horse-box.fast-gallop {
-            animation: shake 0.15s infinite alternate;
+        /* Running Animation */
+        .horse-box.running {
+            animation: gallop 0.2s infinite alternate;
         }
 
-        @keyframes shake {
-            0% { transform: scale(1.05) translate(2px, 2px) rotate(0deg); }
-            100% { transform: scale(1.05) translate(-2px, -2px) rotate(0deg); }
+        @keyframes gallop {
+            0% { transform: scale(1.03) translate(2px, 2px); }
+            100% { transform: scale(1.03) translate(-2px, -2px); }
+        }
+
+        /* Jumping Animation */
+        .horse-box.jumping {
+            animation: jump 0.4s ease;
+        }
+
+        @keyframes jump {
+            0% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-30px) scale(1.1); background: radial-gradient(circle, #059669 0%, #064e3b 100%); }
+            100% { transform: translateY(0) scale(1); }
         }
 
         .horse-icon {
@@ -241,20 +253,20 @@
 
     <header>
         <div class="logo-main">SECRET TREND</div>
-        <div class="logo-sub">Horse Ride Adventure</div>
+        <div class="logo-sub">Horse Ride Game</div>
     </header>
 
     <div class="container">
         <h1 class="title-main">Sunday Funday</h1>
-        <div class="title-sub">Fast Horse Ride Offer!</div>
+        <div class="title-sub">Touch to Run & Jump!</div>
 
         <div class="badge-btn">
-            🐎 FAST! FAST! FAST! 🐎
+            🐎 GAME STARTED 🐎
         </div>
 
-        <div class="horse-box" id="horseBox">
+        <div class="horse-box" id="horseBox" onclick="handleGameTouch()">
             <div class="horse-icon" id="horseIcon">🐎</div>
-            <div class="horse-text" id="horseText">TOUCH & HOLD<br>TO RUN FAST!</div>
+            <div class="horse-text" id="horseText">TAP TO RUN!<br>(Tap Again to Jump)</div>
         </div>
 
         <a href="https://secrettrend.shop/" target="_blank" class="theme-btn">🛍️ ORDER ON WEBSITE</a>
@@ -287,37 +299,31 @@
     </div>
 
     <script>
+        let touchCount = 0;
         const horseBox = document.getElementById('horseBox');
         const horseText = document.getElementById('horseText');
-        const horseIcon = document.getElementById('horseIcon');
 
-        // Touch or Mouse Down (Start Running Fast)
-        function startFastRun() {
-            horseBox.classList.add('fast-gallop');
-            horseText.innerHTML = "⚡ FAST! FAST!<br>FAST! ⚡";
-            horseIcon.style.transform = "scale(1.2)";
+        function handleGameTouch() {
+            touchCount++;
+
+            if (touchCount === 1) {
+                // First Touch: Run Fast
+                horseBox.classList.remove('jumping');
+                horseBox.classList.add('running');
+                horseText.innerHTML = "⚡ FAST RUNNING!<br>TAP AGAIN TO JUMP! ⚡";
+            } else if (touchCount === 2) {
+                // Second Touch: Jump
+                horseBox.classList.remove('running');
+                horseBox.classList.add('jumping');
+                horseText.innerHTML = "🦘 WOHO! JUMPING!<br>TAP TO RUN AGAIN! 🎯";
+                
+                // Reset count after jump animation finishes so cycle repeats
+                setTimeout(() => {
+                    touchCount = 0;
+                    horseBox.classList.remove('jumping');
+                }, 400);
+            }
         }
-
-        // Touch End or Mouse Up (Stop)
-        function stopRun() {
-            horseBox.classList.remove('fast-gallop');
-            horseText.innerHTML = "TOUCH & HOLD<br>TO RUN FAST!";
-            horseIcon.style.transform = "scale(1)";
-        }
-
-        // Event listeners for touch and mouse interactions
-        horseBox.addEventListener('mousedown', startFastRun);
-        horseBox.addEventListener('mouseup', stopRun);
-        horseBox.addEventListener('mouseleave', stopRun);
-
-        horseBox.addEventListener('touchstart', (e) => {
-            e.preventDefault();
-            startFastRun();
-        });
-        horseBox.addEventListener('touchend', (e) => {
-            e.preventDefault();
-            stopRun();
-        });
 
         // Calculate Next Sunday Countdown
         function getNextSunday() {
