@@ -3,373 +3,196 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Secret Trend - Horse Ride Game</title>
+    <title>Secret Trend - Game Adventure</title>
     
-    <meta property="og:title" content="Secret Trend - Horse Ride Game">
-    <meta property="og:description" content="Touch to Run & Jump! Experience the ultimate adventure.">
+    <meta property="og:title" content="Secret Trend - Interactive Game">
+    <meta property="og:description" content="Tap to start running and jumping adventure!">
     <meta property="og:image" content="https://secrettrend.shop/banner.jpg">
     <meta property="og:url" content="https://secrettrend.shop/">
     <meta property="og:type" content="website">
 
     <style>
-        body {
+        body, html {
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #070913 0%, #0b0f19 50%, #111827 100%);
-            color: #ffffff;
+            width: 100%;
+            height: 100vh;
+            background: #111827;
+            overflow: hidden;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            min-height: 100vh;
-            overflow-x: hidden;
             user-select: none;
             -webkit-user-select: none;
         }
 
-        /* Logo Header */
-        header {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 18px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            background: rgba(11, 15, 25, 0.85);
-            backdrop-filter: blur(10px);
-        }
-
-        .logo-main {
-            font-family: 'Georgia', serif;
-            font-size: 20px;
-            letter-spacing: 3px;
-            color: #f9fafb;
-            font-weight: 500;
-            text-transform: uppercase;
-        }
-
-        .logo-sub {
-            font-size: 9px;
-            letter-spacing: 4px;
-            color: #f6ad55;
-            margin-top: 2px;
-            text-transform: uppercase;
-        }
-
-        .container {
-            text-align: center;
-            padding: 25px 20px;
-            max-width: 500px;
-            width: 100%;
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .title-main {
-            font-family: 'Georgia', serif;
-            font-size: 26px;
-            font-weight: 400;
-            margin: 5px 0 0 0;
-            color: #f9fafb;
-            letter-spacing: 1px;
-        }
-
-        .title-sub {
-            font-family: 'Georgia', serif;
-            font-style: italic;
-            font-size: 22px;
-            color: #f6ad55;
-            margin: 0 0 15px 0;
-            text-shadow: 0 0 20px rgba(246, 173, 85, 0.3);
-        }
-
-        .badge-btn {
-            background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
-            color: #ffffff;
-            padding: 10px 22px;
-            border-radius: 30px;
-            font-weight: 600;
-            font-size: 12px;
-            letter-spacing: 1.5px;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 0 25px rgba(217, 119, 6, 0.4);
-            margin-bottom: 20px;
-            border: none;
-        }
-
-        /* Interactive Game Box */
-        .horse-box {
-            width: 240px;
-            height: 240px;
-            background: radial-gradient(circle, #065f46 0%, #022c22 100%);
-            border-radius: 50%;
-            margin: 0 auto 20px auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 0 40px rgba(6, 95, 70, 0.6), inset 0 0 15px rgba(255, 255, 255, 0.1);
+        /* Game Screen Container */
+        .game-container {
             position: relative;
-            cursor: pointer;
-            border: 2px solid rgba(52, 211, 153, 0.3);
-            transition: transform 0.2s ease;
-        }
-
-        /* Running Animation */
-        .horse-box.running {
-            animation: gallop 0.2s infinite alternate;
-        }
-
-        @keyframes gallop {
-            0% { transform: scale(1.03) translate(2px, 2px); }
-            100% { transform: scale(1.03) translate(-2px, -2px); }
-        }
-
-        /* Jumping Animation */
-        .horse-box.jumping {
-            animation: jump 0.4s ease;
-        }
-
-        @keyframes jump {
-            0% { transform: translateY(0) scale(1); }
-            50% { transform: translateY(-30px) scale(1.1); background: radial-gradient(circle, #059669 0%, #064e3b 100%); }
-            100% { transform: translateY(0) scale(1); }
-        }
-
-        .horse-icon {
-            font-size: 60px;
-            margin-bottom: 5px;
-            transition: transform 0.2s;
-        }
-
-        .horse-text {
-            font-size: 13px;
-            font-weight: 700;
-            letter-spacing: 1.2px;
-            color: #ffffff;
-            text-align: center;
-            padding: 0 15px;
-            text-shadow: 0 2px 6px rgba(0,0,0,0.5);
-            line-height: 1.4;
-        }
-
-        .theme-btn {
-            background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
-            color: #ffffff;
-            border: none;
-            padding: 13px 32px;
-            border-radius: 25px;
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: 1.2px;
-            cursor: pointer;
-            box-shadow: 0 0 20px rgba(217, 119, 6, 0.4);
-            margin-bottom: 20px;
-            text-decoration: none;
-            display: inline-block;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .theme-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 0 25px rgba(217, 119, 6, 0.6);
-        }
-
-        /* Countdown Timer */
-        .countdown-container {
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(to bottom, #1e293b, #0f172a);
+            overflow: hidden;
             display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 20px;
+            align-items: flex-end;
         }
 
-        .countdown-box {
-            background: rgba(17, 24, 39, 0.7);
-            border: 1px solid rgba(246, 173, 85, 0.25);
-            border-radius: 12px;
-            width: 60px;
-            height: 70px;
+        /* City/Road Background */
+        .city-background {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 200%;
+            height: 100%;
+            background: repeating-linear-gradient(90deg, #1e293b 0px, #1e293b 100px, #334155 100px, #334155 102px);
+            opacity: 0.3;
+            z-index: 1;
+        }
+
+        .ground {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 80px;
+            background: #0f172a;
+            border-top: 4px solid #f6ad55;
+            z-index: 2;
+        }
+
+        /* Start Screen Overlay */
+        .start-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(11, 15, 25, 0.85);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-            backdrop-filter: blur(5px);
+            z-index: 10;
+            cursor: pointer;
+            transition: opacity 0.5s ease;
         }
 
-        .countdown-number {
+        .start-title {
             font-family: 'Georgia', serif;
-            font-size: 20px;
-            color: #f6ad55;
-            font-weight: bold;
-        }
-
-        .countdown-label {
-            font-size: 8px;
-            letter-spacing: 1.2px;
-            color: #9ca3af;
-            margin-top: 4px;
-        }
-
-        .event-date {
-            font-size: 12px;
+            font-size: 28px;
+            color: #f9fafb;
+            margin-bottom: 10px;
             letter-spacing: 2px;
-            color: #e5e7eb;
-            font-weight: 500;
-            margin-bottom: 15px;
+            text-align: center;
         }
 
-        /* Footer Links */
-        .footer-links {
-            margin-top: 10px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            font-size: 12px;
-            letter-spacing: 1px;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-            padding-top: 15px;
-            width: 100%;
-        }
-
-        .footer-links a {
-            color: #9ca3af;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-links a:hover {
+        .start-subtitle {
+            font-size: 14px;
             color: #f6ad55;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+        }
+
+        .tap-btn {
+            background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+            color: #ffffff;
+            padding: 15px 35px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 16px;
+            letter-spacing: 2px;
+            box-shadow: 0 0 25px rgba(217, 119, 6, 0.6);
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 15px rgba(217, 119, 6, 0.4); }
+            50% { transform: scale(1.08); box-shadow: 0 0 30px rgba(217, 119, 6, 0.8); }
+            100% { transform: scale(1); box-shadow: 0 0 15px rgba(217, 119, 6, 0.4); }
+        }
+
+        /* Game Character / Runner */
+        .runner {
+            position: absolute;
+            bottom: 80px;
+            left: -100px;
+            font-size: 70px;
+            z-index: 5;
+            transition: transform 0.3s ease;
+        }
+
+        /* Running Animation Class */
+        .runner.run {
+            animation: moveAndRun 4s linear forwards, bounceRun 0.3s infinite alternate;
+        }
+
+        @keyframes moveAndRun {
+            0% { left: -100px; }
+            50% { left: 45%; }
+            60% { transform: translateY(-120px) scale(1.1); } /* Jump in the middle */
+            70% { transform: translateY(0) scale(1); }
+            100% { left: 110%; }
+        }
+
+        @keyframes bounceRun {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-8px); }
+        }
+
+        /* Game Status Text */
+        .game-status {
+            position: absolute;
+            top: 20px;
+            width: 100%;
+            text-align: center;
+            font-size: 14px;
+            letter-spacing: 2px;
+            color: #9ca3af;
+            z-index: 4;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo-main">SECRET TREND</div>
-        <div class="logo-sub">Horse Ride Game</div>
-    </header>
+    <div class="game-container" id="gameContainer">
+        <div class="city-background"></div>
+        <div class="game-status" id="gameStatus">TAP SCREEN TO START GAME</div>
+        <div class="ground"></div>
 
-    <div class="container">
-        <h1 class="title-main">Sunday Funday</h1>
-        <div class="title-sub">Touch to Run & Jump!</div>
+        <div class="runner" id="runner">🐎</div>
 
-        <div class="badge-btn">
-            🐎 GAME STARTED 🐎
-        </div>
-
-        <div class="horse-box" id="horseBox" onclick="handleGameTouch()">
-            <div class="horse-icon" id="horseIcon">🐎</div>
-            <div class="horse-text" id="horseText">TAP TO RUN!<br>(Tap Again to Jump)</div>
-        </div>
-
-        <a href="https://secrettrend.shop/" target="_blank" class="theme-btn">🛍️ ORDER ON WEBSITE</a>
-
-        <div class="countdown-container">
-            <div class="countdown-box">
-                <span class="countdown-number" id="days">00</span>
-                <span class="countdown-label">DAYS</span>
-            </div>
-            <div class="countdown-box">
-                <span class="countdown-number" id="hours">00</span>
-                <span class="countdown-label">HOURS</span>
-            </div>
-            <div class="countdown-box">
-                <span class="countdown-number" id="minutes">00</span>
-                <span class="countdown-label">MINUTES</span>
-            </div>
-            <div class="countdown-box">
-                <span class="countdown-number" id="seconds">00</span>
-                <span class="countdown-label">SECONDS</span>
-            </div>
-        </div>
-
-        <div class="event-date" id="eventDateText">SUNDAY • LOADING...</div>
-
-        <div class="footer-links">
-            <a href="https://www.instagram.com/secrettrend_official?igsh=YXd4Y2V5bG5hdm93&utm_source=qr" target="_blank">Secret Trend Official (Instagram)</a>
-            <a href="https://www.instagram.com/secrettrendshop?igsh=c3g5Y2pnbm44bmFt&utm_source=qr" target="_blank">Secret Trend Shop (Instagram)</a>
+        <div class="start-overlay" id="startOverlay" onclick="startGame()">
+            <div class="start-title">SECRET TREND</div>
+            <div class="start-subtitle">City Adventure Game</div>
+            <div class="tap-btn">▶️ TOUCH TO START</div>
         </div>
     </div>
 
     <script>
-        let touchCount = 0;
-        const horseBox = document.getElementById('horseBox');
-        const horseText = document.getElementById('horseText');
+        function startGame() {
+            const overlay = document.getElementById('startOverlay');
+            const runner = document.getElementById('runner');
+            const status = document.getElementById('gameStatus');
 
-        function handleGameTouch() {
-            touchCount++;
+            // Fade out start screen
+            overlay.style.opacity = '0';
+            setTimeout(() => {
+                overlay.style.display = 'none';
+            }, 500);
 
-            if (touchCount === 1) {
-                // First Touch: Run Fast
-                horseBox.classList.remove('jumping');
-                horseBox.classList.add('running');
-                horseText.innerHTML = "⚡ FAST RUNNING!<br>TAP AGAIN TO JUMP! ⚡";
-            } else if (touchCount === 2) {
-                // Second Touch: Jump
-                horseBox.classList.remove('running');
-                horseBox.classList.add('jumping');
-                horseText.innerHTML = "🦘 WOHO! JUMPING!<br>TAP TO RUN AGAIN! 🎯";
-                
-                // Reset count after jump animation finishes so cycle repeats
-                setTimeout(() => {
-                    touchCount = 0;
-                    horseBox.classList.remove('jumping');
-                }, 400);
-            }
+            // Update status text
+            status.innerText = "RUNNING & JUMPING...";
+
+            // Trigger running and jumping animation
+            runner.classList.add('run');
+
+            // Reset after animation finishes so player can restart if needed
+            setTimeout(() => {
+                status.innerText = "GAME COMPLETED! TAP TO REPLAY";
+                overlay.style.display = 'flex';
+                overlay.style.opacity = '1';
+                runner.classList.remove('run');
+                runner.style.left = '-100px';
+            }, 4200);
         }
-
-        // Calculate Next Sunday Countdown
-        function getNextSunday() {
-            const now = new Date();
-            const resultDate = new Date(now.getTime());
-            const dayOfWeek = now.getDay(); 
-            const daysUntilSunday = (7 - dayOfWeek) % 7;
-            
-            if (daysUntilSunday === 0) {
-                resultDate.setDate(now.getDate() + 7);
-            } else {
-                resultDate.setDate(now.getDate() + daysUntilSunday);
-            }
-            resultDate.setHours(10, 0, 0, 0);
-            return resultDate;
-        }
-
-        const targetDate = getNextSunday();
-        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-        document.getElementById('eventDateText').innerText = targetDate.toLocaleDateString('en-US', options).toUpperCase();
-
-        function updateCountdown() {
-            const now = new Date();
-            const diff = targetDate - now;
-
-            if (diff <= 0) {
-                document.getElementById('days').innerText = "00";
-                document.getElementById('hours').innerText = "00";
-                document.getElementById('minutes').innerText = "00";
-                document.getElementById('seconds').innerText = "00";
-                return;
-            }
-
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-            document.getElementById('days').innerText = String(days).padStart(2, '0');
-            document.getElementById('hours').innerText = String(hours).padStart(2, '0');
-            document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
-            document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
-        }
-
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
     </script>
 </body>
 </html>
