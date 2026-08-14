@@ -1,183 +1,327 @@
-<div class="couple-photo-container">
-    <img src="image_21.png" alt="Special Moments" class="couple-img">
-    <div class="photo-caption">
-        <h3>Special Moments</h3>
-    </div>
-</div>
-.couple-photo-container {
-    width: 100%;
-    max-width: 600px;
-    margin: 20px auto;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    background: #fff;
-    text-align: center;
-}
-
-.couple-img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-bottom: 3px solid #ff4d6d;
-}
-
-.photo-caption {
-    padding: 15px;
-    font-family: 'Poppins', sans-serif;
-    color: #333;
-}
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thaha & Rashi - 15th Anniversary</title>
-    <style>
-        body {
-            margin: 0;
-            background-color: #122012;
-            color: #d4af37;
-            font-family: 'Georgia', serif;
-            text-align: center;
-        }
-        .container {
-            padding: 30px 15px;
-            max-width: 600px;
-            margin: 0 auto;
-            animation: fadeIn 1.5s ease-in-out;
-        }
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 5px;
-            letter-spacing: 2px;
-        }
-        .subtitle {
-            font-size: 1.1rem;
-            margin-bottom: 25px;
-            color: #e6c687;
-        }
-        .countdown {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin: 25px 0;
-        }
-        .timer-box {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 12px 8px;
-            border: 1px solid #d4af37;
-            border-radius: 8px;
-            min-width: 60px;
-        }
-        .timer-val {
-            font-size: 20px;
-            font-weight: bold;
-            display: block;
-        }
-        .timer-label {
-            font-size: 9px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        .photo-gallery {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            align-items: center;
-            margin-top: 30px;
-        }
-        .photo-card {
-            width: 100%;
-            max-width: 450px;
-            border: 2px solid #d4af37;
-            padding: 6px;
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
-        .photo-card img {
-            width: 100%;
-            height: auto;
-            border-radius: 6px;
-            display: block;
-        }
-        .caption {
-            margin-top: 8px;
-            font-size: 1rem;
-            color: #333;
-            font-weight: bold;
-        }
-        .footer {
-            font-size: 2rem;
-            font-style: italic;
-            margin-top: 40px;
-            padding-bottom: 30px;
-            color: #d4af37;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Secret Trend - Freedom Offer Mega Sale</title>
+  <style>
+    :root {
+      --saffron: #FF9933;
+      --white: #FFFFFF;
+      --green: #138808;
+      --navy: #000080;
+      --gold: #D4AF37;
+      --dark-bg: #0A1913;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(180deg, #fff7ed 0%, #ffffff 40%, #e8f5e9 100%);
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px 10px;
+    }
+
+    .container {
+      max-width: 450px;
+      width: 100%;
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+      border: 2px solid #e0e0e0;
+      overflow: hidden;
+      text-align: center;
+      position: relative;
+    }
+
+    /* Header Styling */
+    .brand-header {
+      background: var(--dark-bg);
+      color: var(--gold);
+      padding: 15px 10px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .brand-header h1 {
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .brand-header p {
+      font-size: 10px;
+      color: #ccc;
+      margin-top: 2px;
+    }
+
+    /* Banner Banner */
+    .banner-badge {
+      background: linear-gradient(90deg, #ff9933, #ffb74d);
+      color: #fff;
+      padding: 10px 15px;
+      font-weight: bold;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      box-shadow: 0 4px 10px rgba(255, 153, 51, 0.3);
+      margin: 15px 20px 5px 20px;
+      border-radius: 30px;
+    }
+
+    .chakra-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 2px solid var(--navy);
+      position: relative;
+    }
+
+    .main-title {
+      font-family: 'Georgia', serif;
+      font-style: italic;
+      font-size: 24px;
+      color: #1b4332;
+      margin: 15px 10px 5px 10px;
+    }
+
+    /* Content Layout */
+    .offer-body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 10px 20px;
+      position: relative;
+    }
+
+    /* Coupon Tag */
+    .coupon-card {
+      background: #fff8e7;
+      border: 2px dashed var(--gold);
+      border-radius: 12px;
+      padding: 10px 15px;
+      margin: 15px 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .coupon-title {
+      font-size: 12px;
+      color: #666;
+      font-weight: bold;
+    }
+
+    .coupon-code {
+      font-size: 18px;
+      font-weight: 800;
+      color: #d97706;
+      letter-spacing: 1px;
+    }
+
+    /* Spin Wheel Container */
+    .wheel-container {
+      position: relative;
+      width: 220px;
+      height: 220px;
+      margin: 15px 0;
+    }
+
+    .wheel {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 8px solid #1b4332;
+      background: conic-gradient(
+        #ff9933 0deg 120deg,
+        #ffffff 120deg 240deg,
+        #138808 240deg 360deg
+      );
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .wheel-center {
+      width: 130px;
+      height: 130px;
+      background: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 10px;
+      font-weight: bold;
+      font-size: 13px;
+      color: #1b4332;
+      box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+      border: 3px solid var(--gold);
+    }
+
+    /* CTA Button */
+    .cta-button {
+      background: linear-gradient(90deg, #138808, #2e7d32);
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 14px 25px;
+      border-radius: 30px;
+      width: 100%;
+      font-size: 15px;
+      box-shadow: 0 5px 15px rgba(19, 136, 8, 0.4);
+      margin-top: 10px;
+      display: inline-block;
+      transition: transform 0.2s;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+    }
+
+    /* Timer Box */
+    .timer-section {
+      background: #0f281e;
+      color: #fff;
+      padding: 15px;
+      margin-top: 20px;
+    }
+
+    .timer-title {
+      font-size: 12px;
+      color: var(--gold);
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .time-box {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      padding: 8px 12px;
+      border-radius: 8px;
+      min-width: 60px;
+    }
+
+    .time-val {
+      font-size: 18px;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .time-lbl {
+      font-size: 9px;
+      color: #aaa;
+      text-transform: uppercase;
+    }
+
+    .order-hours {
+      font-size: 12px;
+      color: #a7f3d0;
+      margin-top: 12px;
+      font-style: italic;
+    }
+
+    .website-link {
+      display: block;
+      background: #ffffff;
+      color: #1b4332;
+      padding: 10px;
+      font-weight: bold;
+      font-size: 13px;
+      text-decoration: none;
+      border-top: 1px solid #eee;
+    }
+  </style>
 </head>
 <body>
 
-    <div class="container">
-        <div class="hero">
-            <h1>Welcome</h1>
-            <div class="subtitle">Thaha & Rashi | 15th Anniversary</div>
-            <div class="countdown" id="timer">
-                <div class="timer-box"><span class="timer-val" id="days">0</span><span class="timer-label">Days</span></div>
-                <div class="timer-box"><span class="timer-val" id="hours">0</span><span class="timer-label">Hrs</span></div>
-                <div class="timer-box"><span class="timer-val" id="minutes">0</span><span class="timer-label">Mins</span></div>
-                <div class="timer-box"><span class="timer-val" id="seconds">0</span><span class="timer-label">Secs</span></div>
-            </div>
-        </div>
-
-        <div class="photo-gallery">
-            <!-- 1. Couple Photo -->
-            <div class="photo-card">
-                <img src="data:image/png;base64,{img1_b64}" alt="Thaha & Rashi">
-                <div class="caption">Thaha & Rashi (15th Anniversary)</div>
-            </div>
-            <!-- 2. First Child - Aliya -->
-            <div class="photo-card">
-                <img src="data:image/png;base64,{img2_b64}" alt="Aliya">
-                <div class="caption">First Child - Aliya (13 Years)</div>
-            </div>
-            <!-- 3. Second Child - Ayisha -->
-            <div class="photo-card">
-                <img src="data:image/png;base64,{img3_b64}" alt="Ayisha">
-                <div class="caption">Second Child - Ayisha (9 Years)</div>
-            </div>
-            <!-- 4. Third Child & Family -->
-            <div class="photo-card">
-                <img src="data:image/png;base64,{img4_b64}" alt="Ifa & Family">
-                <div class="caption">Third Child - Ifa (5 Years) & Family</div>
-            </div>
-        </div>
-
-        <div class="footer">Alhamdulillah</div>
+  <div class="container">
+    <!-- Brand Header -->
+    <div class="brand-header">
+      <h1>SECRET TREND</h1>
+      <p>PREMIUM CLOTHING & ACCESSORIES</p>
     </div>
 
-    <script>
-        function updateTimer() {
-            const target = new Date("October 1, 2026 00:00:00").getTime();
-            const now = new Date().getTime();
-            const diff = target - now;
-            
-            if (diff > 0) {
-                document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
-                document.getElementById("hours").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                document.getElementById("minutes").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-                document.getElementById("seconds").innerText = Math.floor((diff % (1000 * 60)) / 1000);
-            }
-        }
-        setInterval(updateTimer, 1000);
-        updateTimer();
-    </script>
+    <!-- Banner -->
+    <div class="banner-badge">
+      <span>FREEDOM OFFER MEGA SALE</span>
+    </div>
+
+    <h2 class="main-title">Spin Your Fortune!<br>Celebrate Independence</h2>
+
+    <div class="offer-body">
+      <!-- Coupon Display -->
+      <div class="coupon-card">
+        <span class="coupon-title">Use Coupon Code:</span>
+        <span class="coupon-code">FREEDOM2026</span>
+      </div>
+
+      <!-- Spin Wheel Representation -->
+      <div class="wheel-container">
+        <div class="wheel">
+          <div class="wheel-center">
+            SPIN FOR YOUR FREEDOM CODE
+          </div>
+        </div>
+      </div>
+
+      <!-- Website CTA Button -->
+      <a href="https://www.secrettrend.shop" class="cta-button">
+        CLAIM YOUR SAVINGS ON WEBSITE
+      </a>
+    </div>
+
+    <!-- Timer & Sale Info -->
+    <div class="timer-section">
+      <div class="timer-title">Your Independence Day Deal Starts In:</div>
+      <div class="countdown">
+        <div class="time-box">
+          <div class="time-val" id="days">00</div>
+          <div class="time-lbl">Days</div>
+        </div>
+        <div class="time-box">
+          <div class="time-val" id="hours">15</div>
+          <div class="time-lbl">Hours</div>
+        </div>
+        <div class="time-box">
+          <div class="time-val" id="mins">50</div>
+          <div class="time-lbl">Minutes</div>
+        </div>
+        <div class="time-box">
+          <div class="time-val" id="secs">00</div>
+          <div class="time-lbl">Seconds</div>
+        </div>
+      </div>
+      <div class="order-hours">
+        ORDER ACCEPTED: 3:00 PM - 12:00 AM (August 15, 2026)
+      </div>
+    </div>
+
+    <!-- Footer Link -->
+    <a href="https://www.secrettrend.shop" class="website-link">
+      EXPLORE ALL OFFERS ON: WWW.SECRETTREND.SHOP
+    </a>
+  </div>
+
 </body>
 </html>
