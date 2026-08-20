@@ -9,11 +9,11 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Roboto, sans-serif;
         }
 
         body {
-            background-color: #1a0307;
+            background-color: #0d0103;
             color: #ffffff;
             display: flex;
             justify-content: center;
@@ -21,48 +21,48 @@
             min-height: 100vh;
             padding: 15px;
             text-align: center;
+            overflow-x: hidden;
         }
 
         .container {
             max-width: 450px;
             width: 100%;
-            background: linear-gradient(180deg, #3d050d 0%, #1f0206 50%, #0d0103 100%);
+            background: linear-gradient(180deg, #4a0510 0%, #240207 50%, #0d0103 100%);
             border: 2px solid #e2b047;
-            border-radius: 18px;
+            border-radius: 20px;
             padding: 25px 20px;
-            box-shadow: 0 0 25px rgba(226, 176, 71, 0.25), 0 10px 30px rgba(0, 0, 0, 0.8);
+            box-shadow: 0 0 30px rgba(226, 176, 71, 0.3), 0 10px 40px rgba(0, 0, 0, 0.9);
             position: relative;
             overflow: hidden;
         }
 
-        /* Subtle ambient glow inside card */
-        .container::before {
-            content: '';
+        /* Glowing Background Effect */
+        .glow {
             position: absolute;
-            top: -50px;
+            top: -60px;
             left: 50%;
             transform: translateX(-50%);
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, rgba(226, 176, 71, 0.2) 0%, transparent 70%);
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.25) 0%, transparent 70%);
             pointer-events: none;
         }
 
         .sub-tag {
             color: #f7d788;
             font-size: 0.95rem;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             letter-spacing: 0.5px;
         }
 
         .title {
             color: #fce397;
-            font-size: 2.2rem;
+            font-size: 2.3rem;
             font-weight: 900;
             letter-spacing: 1.5px;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
             text-transform: uppercase;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            text-shadow: 0 2px 10px rgba(0,0,0,0.7);
         }
 
         .date-badge {
@@ -70,11 +70,11 @@
             background: linear-gradient(135deg, #d4af37 0%, #fff1a0 50%, #aa7c11 100%);
             color: #1a0307;
             font-weight: 800;
-            padding: 6px 18px;
+            padding: 6px 20px;
             border-radius: 20px;
-            font-size: 1.05rem;
-            margin: 10px 0 22px 0;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            font-size: 1.1rem;
+            margin: 8px 0 20px 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
         }
 
         /* Countdown Grid */
@@ -82,21 +82,21 @@
             display: flex;
             justify-content: space-between;
             gap: 8px;
-            margin-bottom: 22px;
+            margin-bottom: 20px;
         }
 
         .time-box {
             flex: 1;
-            background: rgba(15, 2, 4, 0.75);
+            background: rgba(15, 2, 4, 0.85);
             border: 1.5px solid #d4af37;
             border-radius: 10px;
-            padding: 12px 4px;
-            box-shadow: inset 0 0 8px rgba(0,0,0,0.6);
+            padding: 10px 2px;
+            box-shadow: inset 0 0 8px rgba(0,0,0,0.8);
         }
 
         .time-box .num {
             color: #ffd700;
-            font-size: 1.8rem;
+            font-size: 1.7rem;
             font-weight: bold;
             display: block;
             line-height: 1;
@@ -113,14 +113,41 @@
 
         .description {
             color: #f0e6d2;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             line-height: 1.6;
-            margin-bottom: 22px;
+            margin-bottom: 20px;
+        }
+
+        /* Category Icons Grid */
+        .categories {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+            padding: 12px 5px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .cat-item {
+            text-align: center;
+        }
+
+        .cat-icon {
+            font-size: 1.6rem;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .cat-label {
+            color: #f7d788;
+            font-size: 0.75rem;
+            font-weight: 600;
         }
 
         .brand-section {
             border-top: 1px dashed rgba(212, 175, 55, 0.4);
-            padding-top: 18px;
+            padding-top: 16px;
         }
 
         .brand-name {
@@ -128,7 +155,7 @@
             font-weight: 900;
             letter-spacing: 3px;
             color: #ffffff;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+            text-shadow: 0 2px 8px rgba(0,0,0,0.7);
         }
 
         .brand-sub {
@@ -139,15 +166,24 @@
             font-weight: 600;
         }
 
-        .location {
+        /* Clickable Location Button Style */
+        .location-btn {
             display: inline-block;
             background: linear-gradient(135deg, #d4af37, #f7d788, #d4af37);
             color: #000000;
             font-weight: bold;
-            padding: 5px 16px;
+            padding: 8px 18px;
             border-radius: 15px;
             font-size: 0.85rem;
-            margin-bottom: 18px;
+            margin-bottom: 16px;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .location-btn:hover, .location-btn:active {
+            transform: scale(1.05);
+            box-shadow: 0 6px 18px rgba(226, 176, 71, 0.6);
         }
 
         .welcome-msg {
@@ -156,13 +192,14 @@
             border: 1px solid #d4af37;
             padding: 10px;
             border-radius: 10px;
-            background: rgba(0, 0, 0, 0.2);
+            background: rgba(0, 0, 0, 0.25);
         }
     </style>
 </head>
 <body>
 
 <div class="container">
+    <div class="glow"></div>
     <div class="sub-tag">ഞങ്ങളുടെ സ്വപ്നം നിങ്ങളുടെ ഇഷ്ടം</div>
     <div class="title">Grand Opening</div>
     <div class="date-badge">21 / 08 / 2026</div>
@@ -192,10 +229,30 @@
         നിങ്ങളുടെ പ്രിയപ്പെട്ട ഷോപ്പ് പുതിയ വാതിൽ തുറക്കുന്നു...
     </div>
 
+    <!-- Clothing Collections -->
+    <div class="categories">
+        <div class="cat-item">
+            <span class="cat-icon">👔</span>
+            <span class="cat-label">മെൻസ് വെയർ</span>
+        </div>
+        <div class="cat-item">
+            <span class="cat-icon">👗</span>
+            <span class="cat-label">ലേഡീസ് വെയർ</span>
+        </div>
+        <div class="cat-item">
+            <span class="cat-icon">👕</span>
+            <span class="cat-label">കിഡ്‌സ് വെയർ</span>
+        </div>
+    </div>
+
     <div class="brand-section">
         <div class="brand-name">KIMONA</div>
         <div class="brand-sub">TEXTILES & READY MADES</div>
-        <div class="location">📍 AYANIKKAD</div>
+        
+        <!-- Google Maps Link Added Here -->
+        <a href="https://maps.app.goo.gl/x9UyBW7BgeHyMwbaA?g_st=ic" target="_blank" class="location-btn">
+            📍 AYANIKKAD (Location)
+        </a>
     </div>
 
     <div class="welcome-msg">
