@@ -1,172 +1,212 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ml">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Independence Day Offer - Spin Wheel</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kimona Textiles - Grand Opening Countdown</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
 
-    body {
-      font-family: 'Poppins', Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      background: linear-gradient(135deg, #FF9933 0%, #FFFFFF 50%, #138808 100%);
-      padding: 20px;
-    }
+        body {
+            background-color: #0b1a13;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 15px;
+            text-align: center;
+        }
 
-    .card {
-      background: #ffffff;
-      padding: 30px 20px;
-      border-radius: 20px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-      text-align: center;
-      max-width: 420px;
-      width: 100%;
-    }
+        .container {
+            max-width: 450px;
+            width: 100%;
+            background: linear-gradient(180deg, #0e241b 0%, #07120d 100%);
+            border: 2px solid #d4af37;
+            border-radius: 16px;
+            padding: 25px 18px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+        }
 
-    .title {
-      font-size: 22px;
-      font-weight: 700;
-      color: #000080;
-      margin-bottom: 10px;
-    }
+        .sub-tag {
+            color: #e2c075;
+            font-size: 1rem;
+            margin-bottom: 6px;
+        }
 
-    .subtitle {
-      font-size: 14px;
-      color: #555;
-      margin-bottom: 20px;
-    }
+        .title {
+            color: #d4af37;
+            font-size: 2.2rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+        }
 
-    /* Wheel Container */
-    .wheel-container {
-      position: relative;
-      width: 240px;
-      height: 240px;
-      margin: 0 auto 25px;
-      border-radius: 50%;
-      border: 8px solid #FF9933;
-      background: #138808;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      box-shadow: inset 0 0 15px rgba(0,0,0,0.3);
-      transition: transform 3s cubic-bezier(0.17, 0.67, 0.12, 0.99);
-    }
+        .date-badge {
+            display: inline-block;
+            background: linear-gradient(45deg, #b8860b, #ffd700, #b8860b);
+            color: #000;
+            font-weight: bold;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 1rem;
+            margin: 10px 0 20px 0;
+        }
 
-    .wheel-text {
-      color: #ffffff;
-      font-size: 20px;
-      font-weight: bold;
-      line-height: 1.4;
-      padding: 10px;
-    }
+        /* Countdown Grid */
+        .countdown {
+            display: flex;
+            justify-content: space-between;
+            gap: 8px;
+            margin-bottom: 22px;
+        }
 
-    /* Spin Button */
-    .btn-spin {
-      background-color: #FF9933;
-      color: #fff;
-      border: none;
-      padding: 14px 35px;
-      font-size: 18px;
-      font-weight: bold;
-      border-radius: 30px;
-      cursor: pointer;
-      box-shadow: 0 4px 10px rgba(255, 153, 51, 0.4);
-      transition: all 0.3s ease;
-    }
+        .time-box {
+            flex: 1;
+            background: rgba(5, 15, 10, 0.8);
+            border: 1.5px solid #d4af37;
+            border-radius: 8px;
+            padding: 10px 4px;
+        }
 
-    .btn-spin:hover {
-      background-color: #e68a00;
-      transform: translateY(-2px);
-    }
+        .time-box .num {
+            color: #ffd700;
+            font-size: 1.7rem;
+            font-weight: bold;
+            display: block;
+            line-height: 1;
+        }
 
-    .btn-spin:disabled {
-      background-color: #ccc;
-      cursor: not-allowed;
-      box-shadow: none;
-    }
+        .time-box .label {
+            color: #c5a059;
+            font-size: 0.65rem;
+            letter-spacing: 1px;
+            margin-top: 4px;
+            display: block;
+            text-transform: uppercase;
+        }
 
-    /* Result Box */
-    .result-box {
-      margin-top: 25px;
-      display: none;
-      animation: fadeIn 0.8s ease-in-out forwards;
-    }
+        .description {
+            color: #e0e0e0;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
 
-    .result-title {
-      font-size: 16px;
-      color: #333;
-      margin-bottom: 8px;
-    }
+        .brand-section {
+            border-top: 1px dashed rgba(212, 175, 55, 0.4);
+            padding-top: 18px;
+        }
 
-    .coupon-code {
-      display: inline-block;
-      background: #f8d7da;
-      color: #721c24;
-      border: 2px dashed #f5c6cb;
-      padding: 10px 20px;
-      font-size: 22px;
-      font-weight: 800;
-      border-radius: 8px;
-      letter-spacing: 2px;
-    }
+        .brand-name {
+            font-size: 2.1rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            color: #ffffff;
+        }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  </style>
+        .brand-sub {
+            color: #d4af37;
+            font-size: 0.8rem;
+            letter-spacing: 1.5px;
+            margin-bottom: 10px;
+        }
+
+        .location {
+            display: inline-block;
+            background-color: #d4af37;
+            color: #000000;
+            font-weight: bold;
+            padding: 4px 14px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            margin-bottom: 15px;
+        }
+
+        .welcome-msg {
+            color: #e2c075;
+            font-size: 0.85rem;
+            border: 1px solid #d4af37;
+            padding: 8px;
+            border-radius: 8px;
+        }
+    </style>
 </head>
 <body>
 
-  <div class="card">
-    <div class="title">Independence Day Special Offer</div>
-    <div class="subtitle">Spin the wheel to unlock your coupon code!</div>
+<div class="container">
+    <div class="sub-tag">ഞങ്ങളുടെ സ്വപ്നം നിങ്ങളുടെ ഇഷ്ടം</div>
+    <div class="title">Grand Opening</div>
+    <div class="date-badge">21 / 08 / 2026</div>
 
-    <div class="wheel-container" id="wheel">
-      <div class="wheel-text" id="wheelText">SPIN</div>
+    <!-- Countdown Timer -->
+    <div class="countdown">
+        <div class="time-box">
+            <span class="num" id="days">00</span>
+            <span class="label">DAYS</span>
+        </div>
+        <div class="time-box">
+            <span class="num" id="hours">00</span>
+            <span class="label">HRS</span>
+        </div>
+        <div class="time-box">
+            <span class="num" id="minutes">00</span>
+            <span class="label">MINS</span>
+        </div>
+        <div class="time-box">
+            <span class="num" id="seconds">00</span>
+            <span class="label">SECS</span>
+        </div>
     </div>
 
-    <button class="btn-spin" id="spinBtn" onclick="startSpin()">SPIN NOW</button>
-
-    <div class="result-box" id="resultBox">
-      <div class="result-title">Go with your code:</div>
-      <div class="coupon-code">FREEDOM2026</div>
+    <div class="description">
+        പുതിയ പ്രതീക്ഷകളോടെ... പുതിയ ശേഖരങ്ങളോടെ...<br>
+        നിങ്ങളുടെ പ്രിയപ്പെട്ട ഷോപ്പ് പുതിയ വാതിൽ തുറക്കുന്നു...
     </div>
-  </div>
 
-  <script>
-    function startSpin() {
-      const wheel = document.getElementById('wheel');
-      const wheelText = document.getElementById('wheelText');
-      const spinBtn = document.getElementById('spinBtn');
-      const resultBox = document.getElementById('resultBox');
+    <div class="brand-section">
+        <div class="brand-name">KIMONA</div>
+        <div class="brand-sub">TEXTILES & READY MADES</div>
+        <div class="location">📍 AYANIKKAD</div>
+    </div>
 
-      // 1947 മുതൽ 2026 വരെയുള്ള ആഘോഷങ്ങളുടെ കണക്ക് (2026 - 1947 + 1 = 80th)
-      const startYear = 1947;
-      const currentYear = 2026;
-      const count = (currentYear - startYear) + 1; // 80th
+    <div class="welcome-msg">
+        എല്ലാവരെയും ഹൃദയപൂർവ്വം സ്വാഗതം ചെയ്യുന്നു ❤️
+    </div>
+</div>
 
-      // ബട്ടൺ ഡിസേബിൾ ചെയ്യുക
-      spinBtn.disabled = true;
+<script>
+    // Set Target Date to August 21, 2026 00:00:00
+    const targetDate = new Date("August 21, 2026 00:00:00").getTime();
 
-      // സ്പിൻ ആനിമേഷൻ
-      wheel.style.transform = "rotate(1440deg)";
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const difference = targetDate - now;
 
-      // ആനിമേഷന് ശേഷം കാണിക്കേണ്ട വിവരങ്ങൾ
-      setTimeout(() => {
-        wheelText.innerHTML = "Happy<br>Independence Day!<br><small style='font-size:16px;'>" + count + "th Celebration</small>";
-        resultBox.style.display = "block";
-      }, 3000);
+        if (difference > 0) {
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+        } else {
+            document.querySelector(".countdown").innerHTML = "<h2 style='color:#ffd700; width:100%;'>WE ARE OPEN!</h2>";
+        }
     }
-  </script>
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+</script>
 
 </body>
 </html>
