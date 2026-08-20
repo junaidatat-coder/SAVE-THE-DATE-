@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kimona Textiles - Grand Opening</title>
+    <title>Kimona Textiles - Grand Opening Countdown</title>
     <style>
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Arial, sans-serif;
+            font-family: Arial, sans-serif;
         }
 
         body {
@@ -21,23 +21,23 @@
             padding: 10px;
         }
 
-        /* Card Container with exact poster design background */
+        /* Exact Poster Background Card */
         .poster-card {
             width: 100%;
             max-width: 420px;
-            background: #1d0107 url('watermarked_img_17351694990488668947.jpg') no-repeat center center;
+            height: 750px;
+            /* പോസ്റ്റർ ചിത്രം ബാക്ക്ഗ്രൗണ്ട് ആയി സെറ്റ് ചെയ്തിരിക്കുന്നു */
+            background: url('poster.jpg') no-repeat center top;
             background-size: cover;
-            border-radius: 16px;
+            border-radius: 18px;
             box-shadow: 0 0 25px rgba(212, 175, 55, 0.4), 0 10px 30px rgba(0,0,0,0.9);
             position: relative;
             overflow: hidden;
-            padding: 260px 20px 30px 20px;
-            text-align: center;
             border: 2px solid #d4af37;
         }
 
-        /* Canvas for Falling Glitter/Confetti Animation */
-        #confettiCanvas {
+        /* Canvas for Falling Glitter Particles Animation */
+        #glitterCanvas {
             position: absolute;
             top: 0;
             left: 0;
@@ -47,100 +47,92 @@
             z-index: 10;
         }
 
-        /* Overlay content to align interactive timer & location button */
-        .content-overlay {
-            position: relative;
-            z-index: 5;
-        }
-
-        /* Countdown Grid Container */
-        .countdown {
+        /* Countdown overlay positioned exactly over the timer box in poster */
+        .countdown-overlay {
+            position: absolute;
+            top: 412px; /* Alignment over poster countdown box */
+            left: 0;
+            width: 100%;
             display: flex;
             justify-content: center;
-            gap: 8px;
-            margin-bottom: 240px; /* Space to match product background alignment */
+            gap: 9px;
+            z-index: 20;
+            padding: 0 20px;
         }
 
         .time-box {
             width: 72px;
-            background: rgba(20, 2, 5, 0.85);
+            height: 62px;
+            background: rgba(22, 3, 7, 0.95);
             border: 1.5px solid #d4af37;
             border-radius: 8px;
-            padding: 8px 2px;
-            box-shadow: inset 0 0 6px rgba(0,0,0,0.8), 0 4px 10px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: inset 0 0 8px rgba(0,0,0,0.9);
         }
 
         .time-box .num {
             color: #ffd700;
             font-size: 1.6rem;
             font-weight: bold;
-            display: block;
             line-height: 1;
         }
 
         .time-box .label {
             color: #d8b467;
-            font-size: 0.6rem;
+            font-size: 0.58rem;
             letter-spacing: 1px;
-            margin-top: 4px;
-            display: block;
+            margin-top: 3px;
             text-transform: uppercase;
         }
 
-        /* Google Maps Clickable Button overlay */
-        .location-btn {
-            display: inline-block;
-            background: linear-gradient(135deg, #ffd700, #b8860b);
-            color: #000000;
-            font-weight: 800;
-            padding: 8px 22px;
-            border-radius: 20px;
-            font-size: 0.9rem;
+        /* Clickable Google Maps Overlay positioned exactly over AYANIKKAD button */
+        .location-link {
+            position: absolute;
+            top: 838px; /* Alignment over AYANIKKAD button */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 180px;
+            height: 38px;
+            z-index: 20;
             text-decoration: none;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
-            transition: transform 0.2s, box-shadow 0.2s;
-            margin-top: 5px;
-            letter-spacing: 0.5px;
-        }
-
-        .location-btn:hover, .location-btn:active {
-            transform: scale(1.08);
-            box-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+            border-radius: 20px;
+            /* Transparent clickable layer over the existing location button */
+            background: rgba(255, 215, 0, 0.01); 
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
 
 <div class="poster-card">
-    <!-- Glitter Animation Canvas -->
-    <canvas id="confettiCanvas"></canvas>
+    <!-- Live Golden Glitter Particles Canvas -->
+    <canvas id="glitterCanvas"></canvas>
 
-    <div class="content-overlay">
-        <!-- Live Countdown Timer -->
-        <div class="countdown">
-            <div class="time-box">
-                <span class="num" id="days">00</span>
-                <span class="label">DAYS</span>
-            </div>
-            <div class="time-box">
-                <span class="num" id="hours">00</span>
-                <span class="label">HRS</span>
-            </div>
-            <div class="time-box">
-                <span class="num" id="minutes">00</span>
-                <span class="label">MINS</span>
-            </div>
-            <div class="time-box">
-                <span class="num" id="seconds">00</span>
-                <span class="label">SECS</span>
-            </div>
+    <!-- Live Working Countdown Timer -->
+    <div class="countdown-overlay">
+        <div class="time-box">
+            <span class="num" id="days">00</span>
+            <span class="label">DAYS</span>
         </div>
-
-        <!-- Google Maps Location Click Button -->
-        <a href="https://maps.app.goo.gl/x9UyBW7BgeHyMwbaA?g_st=ic" target="_blank" class="location-btn">
-            📍 AYANIKKAD (Location Map)
-        </a>
+        <div class="time-box">
+            <span class="num" id="hours">00</span>
+            <span class="label">HRS</span>
+        </div>
+        <div class="time-box">
+            <span class="num" id="minutes">00</span>
+            <span class="label">MINS</span>
+        </div>
+        <div class="time-box">
+            <span class="num" id="seconds">00</span>
+            <span class="label">SECS</span>
+        </div>
     </div>
+
+    <!-- Direct Google Maps Location Link -->
+    <a href="https://maps.app.goo.gl/x9UyBW7BgeHyMwbaA?g_st=ic" target="_blank" class="location-link" title="Click for Location Map"></a>
 </div>
 
 <script>
@@ -162,15 +154,15 @@
             document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
             document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
         } else {
-            document.querySelector(".countdown").innerHTML = "<h3 style='color:#ffd700;'>WE ARE OPEN!</h3>";
+            document.querySelector(".countdown-overlay").innerHTML = "<h3 style='color:#ffd700;'>WE ARE OPEN!</h3>";
         }
     }
 
     setInterval(updateCountdown, 1000);
     updateCountdown();
 
-    // 2. Falling Gold Glitter/Confetti Animation
-    const canvas = document.getElementById('confettiCanvas');
+    // 2. Golden Glitter Particles Animation (Matching Pic 1 Animation)
+    const canvas = document.getElementById('glitterCanvas');
     const ctx = canvas.getContext('2d');
 
     function resizeCanvas() {
@@ -181,21 +173,21 @@
     window.addEventListener('resize', resizeCanvas);
 
     const particles = [];
-    const particleCount = 40;
+    const particleCount = 45;
 
     for (let i = 0; i < particleCount; i++) {
         particles.push({
             x: Math.random() * canvas.width,
             y: Math.random() * canvas.height,
-            size: Math.random() * 4 + 2,
-            speedY: Math.random() * 1.5 + 0.5,
-            speedX: Math.random() * 0.6 - 0.3,
-            color: ['#ffd700', '#ffe680', '#d4af37', '#ffffff'][Math.floor(Math.random() * 4)],
+            size: Math.random() * 3.5 + 1.5,
+            speedY: Math.random() * 1.2 + 0.4,
+            speedX: Math.random() * 0.5 - 0.25,
+            color: ['#ffd700', '#ffe680', '#ffffff', '#d4af37'][Math.floor(Math.random() * 4)],
             opacity: Math.random() * 0.8 + 0.2
         });
     }
 
-    function animateConfetti() {
+    function animateGlitter() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         particles.forEach(p => {
@@ -209,15 +201,15 @@
             p.x += p.speedX;
 
             if (p.y > canvas.height) {
-                p.y = -10;
+                p.y = -5;
                 p.x = Math.random() * canvas.width;
             }
         });
 
-        requestAnimationFrame(animateConfetti);
+        requestAnimationFrame(animateGlitter);
     }
 
-    animateConfetti();
+    animateGlitter();
 </script>
 
 </body>
