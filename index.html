@@ -21,13 +21,13 @@
             padding: 10px;
         }
 
-        /* Poster Outer Card Frame */
+        /* Poster Card with Direct Hosted Image URL */
         .poster-card {
             width: 100%;
             max-width: 420px;
             height: 750px;
-            /* പുതിയ ഡിസൈൻ ബാക്ക്ഗ്രൗണ്ട് ഇമേജ് ആയി നൽകിയിരിക്കുന്നു */
-            background: url('poster.jpg') no-repeat center top;
+            /* നേരിട്ടുള്ള ഓൺ ലൈൻ ഇമേജ് ലിങ്ക് താഴെ നൽകിയിരിക്കുന്നു */
+            background: url('watermarked_img_11816583268690086616.jpg') no-repeat center top;
             background-size: cover;
             border-radius: 18px;
             box-shadow: 0 0 30px rgba(212, 175, 55, 0.4), 0 10px 40px rgba(0,0,0,0.9);
@@ -36,7 +36,7 @@
             border: 2px solid #d4af37;
         }
 
-        /* Glitter Canvas Animation Overlay */
+        /* Canvas for Falling Glitter Animation */
         #glitterCanvas {
             position: absolute;
             top: 0;
@@ -47,10 +47,10 @@
             z-index: 10;
         }
 
-        /* Live Working Countdown Overlay Positioned Exactly Over Poster Boxes */
+        /* Live Working Countdown Overlay Positioned Perfectly */
         .countdown-overlay {
             position: absolute;
-            top: 310px; /* പോസ്റ്ററിലെ ബോക്സിന് കൃത്യമായ അലൈൻമെന്റ് */
+            top: 310px;
             left: 0;
             width: 100%;
             display: flex;
@@ -91,7 +91,7 @@
         /* Direct Clickable Overlay over Google Maps Button */
         .location-link {
             position: absolute;
-            bottom: 100px; /* AYANIKKAD ബട്ടണിനു മുകളിലുള്ള ക്ലിക്കബിൾ ലെയർ */
+            bottom: 100px;
             left: 50%;
             transform: translateX(-50%);
             width: 170px;
@@ -130,7 +130,7 @@
         </div>
     </div>
 
-    <!-- Google Maps Direct Location Overlay -->
+    <!-- Google Maps Direct Location Link -->
     <a href="https://maps.app.goo.gl/x9UyBW7BgeHyMwbaA?g_st=ic" target="_blank" class="location-link" title="Open Location Map"></a>
 </div>
 
@@ -160,7 +160,7 @@
     setInterval(updateCountdown, 1000);
     updateCountdown();
 
-    // 2. Falling Gold Glitter Particles Animation
+    // 2. Falling Gold Glitter Animation
     const canvas = document.getElementById('glitterCanvas');
     const ctx = canvas.getContext('2d');
 
@@ -172,9 +172,7 @@
     window.addEventListener('resize', resizeCanvas);
 
     const particles = [];
-    const particleCount = 45;
-
-    for (let i = 0; i < particleCount; i++) {
+    for (let i = 0; i < 45; i++) {
         particles.push({
             x: Math.random() * canvas.width,
             y: Math.random() * canvas.height,
@@ -188,26 +186,18 @@
 
     function animateGlitter() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-
         particles.forEach(p => {
             ctx.fillStyle = p.color;
             ctx.globalAlpha = p.opacity;
             ctx.beginPath();
             ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
             ctx.fill();
-
             p.y += p.speedY;
             p.x += p.speedX;
-
-            if (p.y > canvas.height) {
-                p.y = -5;
-                p.x = Math.random() * canvas.width;
-            }
+            if (p.y > canvas.height) { p.y = -5; p.x = Math.random() * canvas.width; }
         });
-
         requestAnimationFrame(animateGlitter);
     }
-
     animateGlitter();
 </script>
 
