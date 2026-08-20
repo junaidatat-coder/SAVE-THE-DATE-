@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kimona Textiles - Grand Opening Countdown</title>
+    <title>Kimona Textiles - Grand Opening</title>
     <style>
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
 
         body {
@@ -21,22 +21,21 @@
             padding: 10px;
         }
 
-        /* Exact Poster Background Card */
+        /* Pure CSS & SVG Main Poster Container */
         .poster-card {
             width: 100%;
             max-width: 420px;
-            height: 750px;
-            /* പോസ്റ്റർ ചിത്രം ബാക്ക്ഗ്രൗണ്ട് ആയി സെറ്റ് ചെയ്തിരിക്കുന്നു */
-            background: url('poster.jpg') no-repeat center top;
-            background-size: cover;
+            background: linear-gradient(180deg, #3b020a 0%, #1f0105 40%, #0d0103 100%);
             border-radius: 18px;
-            box-shadow: 0 0 25px rgba(212, 175, 55, 0.4), 0 10px 30px rgba(0,0,0,0.9);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.4), 0 10px 40px rgba(0,0,0,0.9);
             position: relative;
             overflow: hidden;
             border: 2px solid #d4af37;
+            padding: 20px 15px 25px 15px;
+            text-align: center;
         }
 
-        /* Canvas for Falling Glitter Particles Animation */
+        /* Glitter Canvas Animation */
         #glitterCanvas {
             position: absolute;
             top: 0;
@@ -47,30 +46,97 @@
             z-index: 10;
         }
 
-        /* Countdown overlay positioned exactly over the timer box in poster */
-        .countdown-overlay {
+        .content {
+            position: relative;
+            z-index: 5;
+        }
+
+        .top-tag {
+            color: #fce397;
+            font-size: 0.95rem;
+            margin-bottom: 5px;
+            font-weight: 600;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        }
+
+        .grand-opening {
+            font-size: 2.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            line-height: 1.1;
+            background: linear-gradient(180deg, #fff7bd 0%, #ffd700 40%, #b8860b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0px 3px 5px rgba(0,0,0,0.9));
+            margin-bottom: 4px;
+        }
+
+        .date-badge {
+            display: inline-block;
+            color: #ffffff;
+            font-size: 2rem;
+            font-weight: 900;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.9), 0 0 10px rgba(212, 175, 55, 0.5);
+            margin-bottom: 15px;
+        }
+
+        /* Dress Displays Section */
+        .clothes-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 15px;
+            padding: 0 5px;
+        }
+
+        .rack {
+            width: 85px;
+            height: 130px;
+            border: 2px solid #b8860b;
+            border-bottom: none;
+            border-radius: 5px 5px 0 0;
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            padding-top: 15px;
+            background: rgba(0,0,0,0.2);
+            position: relative;
+        }
+
+        .rack::after {
+            content: '';
             position: absolute;
-            top: 412px; /* Alignment over poster countdown box */
-            left: 0;
+            bottom: 0;
             width: 100%;
+            height: 2px;
+            background: #b8860b;
+        }
+
+        .dress-icon {
+            width: 22px;
+            height: 70px;
+        }
+
+        /* Countdown Grid */
+        .countdown {
             display: flex;
             justify-content: center;
-            gap: 9px;
-            z-index: 20;
-            padding: 0 20px;
+            gap: 6px;
+            margin: 10px 0 18px 0;
         }
 
         .time-box {
-            width: 72px;
-            height: 62px;
-            background: rgba(22, 3, 7, 0.95);
+            width: 70px;
+            height: 60px;
+            background: rgba(18, 2, 5, 0.9);
             border: 1.5px solid #d4af37;
             border-radius: 8px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            box-shadow: inset 0 0 8px rgba(0,0,0,0.9);
+            box-shadow: inset 0 0 8px rgba(0,0,0,0.9), 0 4px 10px rgba(0,0,0,0.6);
         }
 
         .time-box .num {
@@ -82,61 +148,201 @@
 
         .time-box .label {
             color: #d8b467;
-            font-size: 0.58rem;
+            font-size: 0.55rem;
             letter-spacing: 1px;
             margin-top: 3px;
             text-transform: uppercase;
         }
 
-        /* Clickable Google Maps Overlay positioned exactly over AYANIKKAD button */
-        .location-link {
-            position: absolute;
-            top: 838px; /* Alignment over AYANIKKAD button */
-            left: 50%;
-            transform: translateX(-50%);
-            width: 180px;
-            height: 38px;
-            z-index: 20;
-            text-decoration: none;
+        .description {
+            color: #f0e6d2;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+        }
+
+        .brand-logo {
+            width: 45px;
+            height: 45px;
+            margin: 0 auto 5px auto;
+        }
+
+        .brand-name {
+            font-size: 2.4rem;
+            font-weight: 900;
+            letter-spacing: 3px;
+            color: #ffffff;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.9);
+        }
+
+        .brand-sub {
+            color: #d4af37;
+            font-size: 0.8rem;
+            letter-spacing: 1.5px;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        /* Clickable Location Button */
+        .location-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #ffd700, #b8860b);
+            color: #000000;
+            font-weight: 900;
+            padding: 8px 22px;
             border-radius: 20px;
-            /* Transparent clickable layer over the existing location button */
-            background: rgba(255, 215, 0, 0.01); 
-            cursor: pointer;
+            font-size: 0.88rem;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+            transition: transform 0.2s;
+            margin-bottom: 20px;
+        }
+
+        .location-btn:hover, .location-btn:active {
+            transform: scale(1.06);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+        }
+
+        /* Bottom Category Icons */
+        .bottom-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px dashed rgba(212, 175, 55, 0.4);
+            padding-top: 15px;
+        }
+
+        .cat-group {
+            display: flex;
+            gap: 12px;
+        }
+
+        .cat-item {
+            text-align: center;
+        }
+
+        .circle-icon {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #d4af37;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 4px auto;
+            background: rgba(0,0,0,0.4);
+        }
+
+        .cat-label {
+            color: #fce397;
+            font-size: 0.65rem;
+        }
+
+        .welcome-badge {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #ffd700, #b8860b);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #000;
+            font-size: 0.7rem;
+            font-weight: bold;
+            padding: 5px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
         }
     </style>
 </head>
 <body>
 
 <div class="poster-card">
-    <!-- Live Golden Glitter Particles Canvas -->
+    <!-- Live Glitter Animation Canvas -->
     <canvas id="glitterCanvas"></canvas>
 
-    <!-- Live Working Countdown Timer -->
-    <div class="countdown-overlay">
-        <div class="time-box">
-            <span class="num" id="days">00</span>
-            <span class="label">DAYS</span>
+    <div class="content">
+        <div class="top-tag">ഞങ്ങളുടെ സ്വപ്നം നിങ്ങളുടെ ഇഷ്ടം</div>
+        <div class="grand-opening">Grand<br>Opening</div>
+        <div class="date-badge">21/08/2026</div>
+
+        <!-- Live Countdown Timer -->
+        <div class="countdown">
+            <div class="time-box">
+                <span class="num" id="days">00</span>
+                <span class="label">DAYS</span>
+            </div>
+            <div class="time-box">
+                <span class="num" id="hours">00</span>
+                <span class="label">HRS</span>
+            </div>
+            <div class="time-box">
+                <span class="num" id="minutes">00</span>
+                <span class="label">MINS</span>
+            </div>
+            <div class="time-box">
+                <span class="num" id="seconds">00</span>
+                <span class="label">SECS</span>
+            </div>
         </div>
-        <div class="time-box">
-            <span class="num" id="hours">00</span>
-            <span class="label">HRS</span>
+
+        <!-- Clothes Rack SVG Display -->
+        <div class="clothes-container">
+            <div class="rack">
+                <svg class="dress-icon" viewBox="0 0 24 24" fill="#d4af37"><path d="M12 2L9 5h6l-3-3zm-5 6h10l1 14H6L7 8z"/></svg>
+                <svg class="dress-icon" viewBox="0 0 24 24" fill="#e6b800"><path d="M12 2L9 5h6l-3-3zm-5 6h10l1 14H6L7 8z"/></svg>
+            </div>
+            <div class="rack">
+                <svg class="dress-icon" viewBox="0 0 24 24" fill="#ffd700"><path d="M12 2l-4 4v16h8V6l-4-4z"/></svg>
+                <svg class="dress-icon" viewBox="0 0 24 24" fill="#d4af37"><path d="M12 2l-4 4v16h8V6l-4-4z"/></svg>
+            </div>
         </div>
-        <div class="time-box">
-            <span class="num" id="minutes">00</span>
-            <span class="label">MINS</span>
+
+        <div class="description">
+            പുതിയ പ്രതീക്ഷകളോടെ... പുതിയ ശേഖരങ്ങളോടെ...<br>
+            നിങ്ങളുടെ പ്രിയപ്പെട്ട ഷോപ്പ് പുതിയ വാതിൽ തുറക്കുന്നു...
         </div>
-        <div class="time-box">
-            <span class="num" id="seconds">00</span>
-            <span class="label">SECS</span>
+
+        <!-- Brand Logo SVG -->
+        <svg class="brand-logo" viewBox="0 0 100 100">
+            <path d="M20 10 L50 90 L80 10 M35 50 L80 50" stroke="#ffd700" stroke-width="12" fill="none" stroke-linecap="round"/>
+        </svg>
+
+        <div class="brand-name">KIMONA</div>
+        <div class="brand-sub">TEXTILES & READY MADES</div>
+
+        <!-- Google Maps Location Link -->
+        <a href="https://maps.app.goo.gl/x9UyBW7BgeHyMwbaA?g_st=ic" target="_blank" class="location-btn">
+            📍 AYANIKKAD (Location Map)
+        </a>
+
+        <!-- Category & Welcome Badge Section -->
+        <div class="bottom-section">
+            <div class="cat-group">
+                <div class="cat-item">
+                    <div class="circle-icon">👔</div>
+                    <div class="cat-label">മെൻസ് വെയർ</div>
+                </div>
+                <div class="cat-item">
+                    <div class="circle-icon">👗</div>
+                    <div class="cat-label">ലേഡീസ് വെയർ</div>
+                </div>
+                <div class="cat-item">
+                    <div class="circle-icon">👕</div>
+                    <div class="cat-label">കിഡ്‌സ് വെയർ</div>
+                </div>
+            </div>
+
+            <div class="welcome-badge">
+                എല്ലാവരെയും ഹൃദയപൂർവ്വം స్వాഗതം ചെയ്യുന്നു ❤️
+            </div>
         </div>
     </div>
-
-    <!-- Direct Google Maps Location Link -->
-    <a href="https://maps.app.goo.gl/x9UyBW7BgeHyMwbaA?g_st=ic" target="_blank" class="location-link" title="Click for Location Map"></a>
 </div>
 
 <script>
-    // 1. Live Countdown Script targeting 21 August 2026
+    // Live Countdown Script targeting 21 August 2026
     const targetDate = new Date("August 21, 2026 00:00:00").getTime();
 
     function updateCountdown() {
@@ -154,14 +360,14 @@
             document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
             document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
         } else {
-            document.querySelector(".countdown-overlay").innerHTML = "<h3 style='color:#ffd700;'>WE ARE OPEN!</h3>";
+            document.querySelector(".countdown").innerHTML = "<h3 style='color:#ffd700;'>WE ARE OPEN!</h3>";
         }
     }
 
     setInterval(updateCountdown, 1000);
     updateCountdown();
 
-    // 2. Golden Glitter Particles Animation (Matching Pic 1 Animation)
+    // Glitter Animation
     const canvas = document.getElementById('glitterCanvas');
     const ctx = canvas.getContext('2d');
 
@@ -173,9 +379,7 @@
     window.addEventListener('resize', resizeCanvas);
 
     const particles = [];
-    const particleCount = 45;
-
-    for (let i = 0; i < particleCount; i++) {
+    for (let i = 0; i < 40; i++) {
         particles.push({
             x: Math.random() * canvas.width,
             y: Math.random() * canvas.height,
@@ -189,26 +393,18 @@
 
     function animateGlitter() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-
         particles.forEach(p => {
             ctx.fillStyle = p.color;
             ctx.globalAlpha = p.opacity;
             ctx.beginPath();
             ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
             ctx.fill();
-
             p.y += p.speedY;
             p.x += p.speedX;
-
-            if (p.y > canvas.height) {
-                p.y = -5;
-                p.x = Math.random() * canvas.width;
-            }
+            if (p.y > canvas.height) { p.y = -5; p.x = Math.random() * canvas.width; }
         });
-
         requestAnimationFrame(animateGlitter);
     }
-
     animateGlitter();
 </script>
 
